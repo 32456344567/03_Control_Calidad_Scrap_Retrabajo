@@ -198,7 +198,7 @@
             "mode": "import",
             "source": {
               "type": "m",
-              "expression": "let\n    Source = Csv.Document(File.Contents(\"C:/Users/apolo/Mi unidad/Estrategias para conseguir un mejor empleo/proyectos_portafolio/03_Control_Calidad_Scrap_Retrabajo/data/processed/powerbi_calidad_copq.csv\"),[Delimiter=\",\", Encoding=65001, QuoteStyle=QuoteStyle.None]),\n    #\"Promoted Headers\" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),\n    #\"Changed Type\" = Table.TransformColumnTypes(#\"Promoted Headers\",{\n        {\"event_id\", type text}, {\"event_ts\", type datetime}, {\"plant\", type text}, {\"line\", type text},\n        {\"shift\", type text}, {\"machine_id\", type text}, {\"operator_id\", type text}, {\"machine_age_yrs\", type number},\n        {\"material_grade\", type text}, {\"temp_c\", type number}, {\"humidity_pct\", type number},\n        {\"process_speed_units_hr\", type number}, {\"inspection_method\", type text}, {\"defect_type\", type text},\n        {\"defect_severity_0to3\", Int64.Type}, {\"decision_rework\", Int64.Type}, {\"rework_time_min\", type number},\n        {\"final_pass\", Int64.Type}, {\"scrap\", Int64.Type}, {\"total_cycle_time_min\", type number},\n        {\"energy_kwh\", type number}, {\"cost_usd\", type number}, {\"warranty_claim_90d\", Int64.Type},\n        {\"categoria_copq\", type text}, {\"desenlace_operativo\", type text}, {\"costo_perdida_doble\", type number},\n        {\"rango_velocidad\", type text}, {\"rango_antiguedad\", type text}, {\"severidad_label\", type text}\n    })\nin\n    #\"Changed Type\""
+              "expression": "let\n    Source = Csv.Document(File.Contents(\"C:\\\\Users\\\\apolo\\\\Mi unidad\\\\Estrategias para conseguir un mejor empleo\\\\proyectos_portafolio\\\\03_Control_Calidad_Scrap_Retrabajo\\\\data\\\\processed\\\\powerbi_calidad_copq.csv\"),[Delimiter=\",\", Columns=29, Encoding=65001, QuoteStyle=QuoteStyle.None]),\n    #\"Promoted Headers\" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),\n    #\"Changed Type\" = Table.TransformColumnTypes(#\"Promoted Headers\",{\n        {\"event_id\", type text}, {\"event_ts\", type datetime}, {\"plant\", type text}, {\"line\", type text},\n        {\"shift\", type text}, {\"machine_id\", type text}, {\"operator_id\", type text}, {\"machine_age_yrs\", type number},\n        {\"material_grade\", type text}, {\"temp_c\", type number}, {\"humidity_pct\", type number},\n        {\"process_speed_units_hr\", type number}, {\"inspection_method\", type text}, {\"defect_type\", type text},\n        {\"defect_severity_0to3\", Int64.Type}, {\"decision_rework\", Int64.Type}, {\"rework_time_min\", type number},\n        {\"final_pass\", Int64.Type}, {\"scrap\", Int64.Type}, {\"total_cycle_time_min\", type number},\n        {\"energy_kwh\", type number}, {\"cost_usd\", type number}, {\"warranty_claim_90d\", Int64.Type},\n        {\"categoria_copq\", type text}, {\"desenlace_operativo\", type text}, {\"costo_perdida_doble\", type number},\n        {\"rango_velocidad\", type text}, {\"rango_antiguedad\", type text}, {\"severidad_label\", type text}\n    }, \"en-US\")\nin\n    #\"Changed Type\""
             }
           }
         ],
@@ -286,7 +286,7 @@
           {
             "name": "COPQ Falla Externa USD",
             "description": "Costo de Falla Externa: reclamos de garantia de clientes a 90 dias",
-            "expression": "CALCULATE(SUM('FactCalidad'[cost_usd]), 'FactCalidad'[categoria_copq] = \"Falla Externa (Reclamo Garantía)\")",
+            "expression": "CALCULATE(SUM('FactCalidad'[cost_usd]), 'FactCalidad'[categoria_copq] = \"Falla Externa (Reclamo Garant\u00eda)\")",
             "formatString": "$#,##0.00",
             "displayFolder": "03. Finanzas COPQ",
             "lineageTag": "333882fa-8919-46ec-88a4-ba740c883dc7"
@@ -325,7 +325,7 @@
           },
           {
             "name": "Reclamos Garantia 90d",
-            "description": "Total de reclamos de garantía reportados por clientes a 90 días",
+            "description": "Total de reclamos de garant\u00eda reportados por clientes a 90 d\u00edas",
             "expression": "CALCULATE(COUNTROWS('FactCalidad'), 'FactCalidad'[warranty_claim_90d] = 1)",
             "formatString": "#,##0",
             "displayFolder": "04. Calidad de Cliente",
@@ -333,7 +333,7 @@
           },
           {
             "name": "Tasa Escape Garantia %",
-            "description": "Tasa de fuga de defectos hacia reclamos de clientes en garantía",
+            "description": "Tasa de fuga de defectos hacia reclamos de clientes en garant\u00eda",
             "expression": "DIVIDE([Reclamos Garantia 90d], [Total Eventos], 0)",
             "formatString": "0.00%",
             "displayFolder": "04. Calidad de Cliente",
