@@ -1,0 +1,27 @@
+{
+  "config": "{\"version\": \"5.50\", \"themeCollection\": {\"baseTheme\": {\"name\": \"CY24SU02\", \"version\": \"5.50\", \"type\": 2}}}",
+  "layoutOptimization": 0,
+  "sections": [
+    {
+      "name": "ReportSection_Page1",
+      "displayName": "1. Resumen Ejecutivo COPQ",
+      "width": 1280,
+      "height": 720,
+      "visualContainers": []
+    },
+    {
+      "name": "ReportSection_Page2",
+      "displayName": "2. Causa Raiz y Desempe\u00f1o",
+      "width": 1280,
+      "height": 720,
+      "visualContainers": []
+    },
+    {
+      "name": "ReportSection_Page3",
+      "displayName": "3. Eficacia Inspecci\u00f3n y Garant\u00eda",
+      "width": 1280,
+      "height": 720,
+      "visualContainers": []
+    }
+  ]
+}

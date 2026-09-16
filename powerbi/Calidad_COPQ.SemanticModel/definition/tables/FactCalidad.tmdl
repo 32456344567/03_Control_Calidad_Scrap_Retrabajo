@@ -1,0 +1,271 @@
+/// Tabla de hechos de 10,000 eventos de calidad y decisiones de retrabajo
+table FactCalidad
+	lineageTag: f3ae62a0-d69e-4457-aa92-4b462ed44194
+
+	/// Conteo total de eventos de calidad e inspeccion registrados
+	measure 'Total Eventos' = COUNTROWS('FactCalidad')
+		formatString: #,##0
+		displayFolder: 01. Volumen e Integridad
+		lineageTag: 96cc5ec0-3c1b-4db8-8f37-a83cf87daf59
+
+	/// Total de piezas aprobadas conforme al final del proceso
+	measure 'Piezas Aprobadas' = CALCULATE(COUNTROWS('FactCalidad'), 'FactCalidad'[final_pass] = 1)
+		formatString: #,##0
+		displayFolder: 01. Volumen e Integridad
+		lineageTag: c0b9cc09-aa7e-4dde-be49-a7812de2d634
+
+	/// Porcentaje de aprobacion final sobre el total de produccion
+	measure 'Tasa Aprobacion %' = DIVIDE([Piezas Aprobadas], [Total Eventos], 0)
+		formatString: 0.0%
+		displayFolder: 01. Volumen e Integridad
+		lineageTag: 53163223-3548-4670-a6f0-6d18eb26a5d2
+
+	/// Total de unidades destruidas a scrap
+	measure 'Unidades Scrap' = CALCULATE(COUNTROWS('FactCalidad'), 'FactCalidad'[scrap] = 1)
+		formatString: #,##0
+		displayFolder: 02. Scrap y Retrabajo
+		lineageTag: d1201085-f160-4219-ac23-21d4376a98c5
+
+	/// Tasa de desperdicio a scrap sobre el volumen total
+	measure 'Tasa Scrap %' = DIVIDE([Unidades Scrap], [Total Eventos], 0)
+		formatString: 0.0%
+		displayFolder: 02. Scrap y Retrabajo
+		lineageTag: 24aeb3b9-5d49-4e37-99c0-9f196ffecb3c
+
+	/// Unidades derivadas a reproceso por decision operativa
+	measure 'Unidades Retrabajadas' = CALCULATE(COUNTROWS('FactCalidad'), 'FactCalidad'[decision_rework] = 1)
+		formatString: #,##0
+		displayFolder: 02. Scrap y Retrabajo
+		lineageTag: af71229c-9606-4d6a-af40-c927063d6f6d
+
+	/// Tasa de retrabajo sobre el volumen total
+	measure 'Tasa Retrabajo %' = DIVIDE([Unidades Retrabajadas], [Total Eventos], 0)
+		formatString: 0.0%
+		displayFolder: 02. Scrap y Retrabajo
+		lineageTag: e98c87d8-384b-44e5-800f-d99bf9b239cc
+
+	/// Porcentaje de piezas retrabajadas que lograron aprobacion final
+	measure 'Exito Retrabajo %' = CALCULATE(DIVIDE(CALCULATE(COUNTROWS('FactCalidad'), 'FactCalidad'[final_pass] = 1), COUNTROWS('FactCalidad'), 0), 'FactCalidad'[decision_rework] = 1)
+		formatString: 0.0%
+		displayFolder: 02. Scrap y Retrabajo
+		lineageTag: b9588a2a-6ebc-4f70-b6f3-8f2362e95773
+
+	/// Gasto total acumulado en eventos de calidad y proceso
+	measure 'Costo Total Eventos USD' = SUM('FactCalidad'[cost_usd])
+		formatString: $#,##0.00
+		displayFolder: 03. Finanzas COPQ
+		lineageTag: 4f297113-c6ca-43e6-acb6-b3dd50422dae
+
+	/// Costo de Falla Interna: suma de Scrap y Retrabajos
+	measure 'COPQ Falla Interna USD' = CALCULATE(SUM('FactCalidad'[cost_usd]), 'FactCalidad'[categoria_copq] IN {"Falla Interna (Scrap)", "Falla Interna (Retrabajo)"})
+		formatString: $#,##0.00
+		displayFolder: 03. Finanzas COPQ
+		lineageTag: 6a50a453-4d4b-44c1-8597-79c4178b210d
+
+	/// Costo de Falla Externa: reclamos de garantia de clientes a 90 dias
+	measure 'COPQ Falla Externa USD' = CALCULATE(SUM('FactCalidad'[cost_usd]), 'FactCalidad'[categoria_copq] = "Falla Externa (Reclamo Garantía)")
+		formatString: $#,##0.00
+		displayFolder: 03. Finanzas COPQ
+		lineageTag: 333882fa-8919-46ec-88a4-ba740c883dc7
+
+	/// Costo de No Calidad total (Falla Interna + Falla Externa)
+	measure 'COPQ Total USD' = [COPQ Falla Interna USD] + [COPQ Falla Externa USD]
+		formatString: $#,##0.00
+		displayFolder: 03. Finanzas COPQ
+		lineageTag: 089d632f-d88c-4428-8347-768f9bb62b66
+
+	/// Costo medio absorbido por unidad producida
+	measure 'Costo Medio Unidad USD' = DIVIDE([Costo Total Eventos USD], [Total Eventos], 0)
+		formatString: $#,##0.00
+		displayFolder: 03. Finanzas COPQ
+		lineageTag: 2211bb54-7e66-47db-80d6-e8d7407bcd3f
+
+	/// Sobrecosto directo incurrido en piezas retrabajadas que terminaron en Scrap ($126.78 vs $101.31)
+	measure 'Perdida Retrabajo Fallido USD' = SUM('FactCalidad'[costo_perdida_doble])
+		formatString: $#,##0.00
+		displayFolder: 03. Finanzas COPQ
+		lineageTag: f34a8e6c-cc71-472e-a51c-ec18bc93420f
+
+	/// Ahorro financiero proyectado a 100,000 eventos anuales por eliminar retrabajo en Severidad 3
+	measure 'Ahorro Proyectado Anual USD' = [Perdida Retrabajo Fallido USD] * 10
+		formatString: $#,##0.00
+		displayFolder: 03. Finanzas COPQ
+		lineageTag: 416540d4-f0b4-4caa-9740-3fb86513e90b
+
+	/// Total de reclamos de garantía reportados por clientes a 90 días
+	measure 'Reclamos Garantia 90d' = CALCULATE(COUNTROWS('FactCalidad'), 'FactCalidad'[warranty_claim_90d] = 1)
+		formatString: #,##0
+		displayFolder: 04. Calidad de Cliente
+		lineageTag: 8a86be0c-a485-4bce-8333-cb3b84af573d
+
+	/// Tasa de fuga de defectos hacia reclamos de clientes en garantía
+	measure 'Tasa Escape Garantia %' = DIVIDE([Reclamos Garantia 90d], [Total Eventos], 0)
+		formatString: 0.00%
+		displayFolder: 04. Calidad de Cliente
+		lineageTag: a5839ba0-d59b-4efb-95b7-8ac4fb880c58
+
+	column event_id
+		dataType: string
+		lineageTag: 9bec4056-c9c4-4e9c-b64e-9dc2e98aeb79
+		sourceColumn: event_id
+
+	column event_ts
+		dataType: dateTime
+		lineageTag: ecf4c559-2e94-42f8-9582-8fe5225ece22
+		sourceColumn: event_ts
+
+	column plant
+		dataType: string
+		lineageTag: fd6c03b9-cca7-4378-a965-80d7a377c6a1
+		sourceColumn: plant
+
+	column line
+		dataType: string
+		lineageTag: 19b32f8d-1999-49f7-a7bf-80a49d66eda0
+		sourceColumn: line
+
+	column shift
+		dataType: string
+		lineageTag: 1b26563b-9169-4f84-8e82-f8937471db31
+		sourceColumn: shift
+
+	column machine_id
+		dataType: string
+		lineageTag: 488b0276-9257-4d46-8e4f-8c1ca91d15e5
+		sourceColumn: machine_id
+
+	column operator_id
+		dataType: string
+		lineageTag: bd5f4d6c-56d9-42d1-a4c3-405976721374
+		sourceColumn: operator_id
+
+	column machine_age_yrs
+		dataType: double
+		lineageTag: 6764ea1e-b464-471c-8f15-f928b9de813c
+		sourceColumn: machine_age_yrs
+
+	column material_grade
+		dataType: string
+		lineageTag: d999d779-4168-4958-824b-e178d395c151
+		sourceColumn: material_grade
+
+	column temp_c
+		dataType: double
+		lineageTag: 0141797a-d1b9-443b-95d9-4b55deb6a0ee
+		sourceColumn: temp_c
+
+	column humidity_pct
+		dataType: double
+		lineageTag: 4ddce234-062a-45fa-a96f-4c2d5fbe7e56
+		sourceColumn: humidity_pct
+
+	column process_speed_units_hr
+		dataType: double
+		lineageTag: 025116bc-1ca0-48d1-ae3c-d0b7ae0b000c
+		sourceColumn: process_speed_units_hr
+
+	column inspection_method
+		dataType: string
+		lineageTag: 3163b250-6cfe-4ec8-b968-134b15957c6c
+		sourceColumn: inspection_method
+
+	column defect_type
+		dataType: string
+		lineageTag: ef30988f-40ec-45fa-a4b7-71c2b8a80497
+		sourceColumn: defect_type
+
+	column defect_severity_0to3
+		dataType: int64
+		lineageTag: 7f529072-eff2-4573-a81a-2df81741ec8d
+		sourceColumn: defect_severity_0to3
+
+	column decision_rework
+		dataType: int64
+		lineageTag: c0412c92-d04e-44d6-b1b0-e8c987f6bfa0
+		sourceColumn: decision_rework
+
+	column rework_time_min
+		dataType: double
+		lineageTag: 92884df5-3288-4115-9e76-1541d231a10c
+		sourceColumn: rework_time_min
+
+	column final_pass
+		dataType: int64
+		lineageTag: 14948cd7-64e5-437b-82e7-812a3e1802c4
+		sourceColumn: final_pass
+
+	column scrap
+		dataType: int64
+		lineageTag: f55250d6-1324-476b-95f1-c5f91c5cc811
+		sourceColumn: scrap
+
+	column total_cycle_time_min
+		dataType: double
+		lineageTag: 1e0577d8-8964-41f8-bc5d-a4ced198f3be
+		sourceColumn: total_cycle_time_min
+
+	column energy_kwh
+		dataType: double
+		lineageTag: 156a729d-d0e5-4e01-883c-2c200e4890d1
+		sourceColumn: energy_kwh
+
+	column cost_usd
+		dataType: double
+		lineageTag: 505131ca-62c9-4654-9d4e-b606089ab9ee
+		sourceColumn: cost_usd
+
+	column warranty_claim_90d
+		dataType: int64
+		lineageTag: 3d5e0736-dc2d-45c1-887b-1c93ac657812
+		sourceColumn: warranty_claim_90d
+
+	column categoria_copq
+		dataType: string
+		lineageTag: f194e4eb-147b-4437-aef2-eb159df8234a
+		sourceColumn: categoria_copq
+
+	column desenlace_operativo
+		dataType: string
+		lineageTag: d01bf4ed-104b-4563-9c32-5b93375fd495
+		sourceColumn: desenlace_operativo
+
+	column costo_perdida_doble
+		dataType: double
+		lineageTag: 351894f4-56e7-4aac-b0d2-354a6f10a600
+		sourceColumn: costo_perdida_doble
+
+	column rango_velocidad
+		dataType: string
+		lineageTag: 891fc2a4-dfa5-480a-9c3d-5de3e31f1628
+		sourceColumn: rango_velocidad
+
+	column rango_antiguedad
+		dataType: string
+		lineageTag: 1a9494af-a417-4f7a-b982-98be42753a7d
+		sourceColumn: rango_antiguedad
+
+	column severidad_label
+		dataType: string
+		lineageTag: 27f94b8d-8f29-41be-91d4-374fd3d9bb30
+		sourceColumn: severidad_label
+
+	partition FactCalidad = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:/Users/apolo/Mi unidad/Estrategias para conseguir un mejor empleo/proyectos_portafolio/03_Control_Calidad_Scrap_Retrabajo/data/processed/powerbi_calidad_copq.csv"),[Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{
+				        {"event_id", type text}, {"event_ts", type datetime}, {"plant", type text}, {"line", type text},
+				        {"shift", type text}, {"machine_id", type text}, {"operator_id", type text}, {"machine_age_yrs", type number},
+				        {"material_grade", type text}, {"temp_c", type number}, {"humidity_pct", type number},
+				        {"process_speed_units_hr", type number}, {"inspection_method", type text}, {"defect_type", type text},
+				        {"defect_severity_0to3", Int64.Type}, {"decision_rework", Int64.Type}, {"rework_time_min", type number},
+				        {"final_pass", Int64.Type}, {"scrap", Int64.Type}, {"total_cycle_time_min", type number},
+				        {"energy_kwh", type number}, {"cost_usd", type number}, {"warranty_claim_90d", Int64.Type},
+				        {"categoria_copq", type text}, {"desenlace_operativo", type text}, {"costo_perdida_doble", type number},
+				        {"rango_velocidad", type text}, {"rango_antiguedad", type text}, {"severidad_label", type text}
+				    })
+				in
+				    #"Changed Type"
+

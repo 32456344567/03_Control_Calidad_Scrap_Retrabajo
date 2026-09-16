@@ -1,0 +1,4 @@
+/// Modelo Semantico de Calidad, Scrap y Costos COPQ
+database Calidad_COPQ_DB
+	compatibilityLevel: 1600
+
