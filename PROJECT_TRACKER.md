@@ -1,51 +1,55 @@
-# 📋 PROJECT TRACKER: Control de Calidad, Scrap y Retrabajo (Lean & Sellable)
+# 📋 PROJECT TRACKER: Control de Calidad, Scrap y Retrabajo (Enfoque Industrial)
 
-Este tablero registra el avance y entrega de cada pieza del Proyecto 03, asegurando simplicidad ejecutiva, alto impacto visual y aplicabilidad directa en piso de planta.
+Este tablero registra el avance y entrega de cada pieza del Proyecto 03, asegurando rigor técnico, aplicabilidad real en planta y alta credibilidad ante Gerentes de Operaciones y Directores de Calidad.
 
 ---
 
 ## 📌 Estado General del Proyecto
 * **Proyecto:** 03_Control_Calidad_Scrap_Retrabajo
-* **Enfoque:** Six Sigma DMAIC + Matriz de Decisión Financiera (Retrabajo vs. Scrap) + Semáforo Interactivo
+* **Enfoque:** Six Sigma DMAIC + Gestión de COPQ + Reporte A3 Lean + Tablero Power BI + OPL de Piso
 * **Estado:** 🟢 100% Completado & Verificado
-* **Ahorro Demostrado:** +$4,864 USD netos en muestra (+$48,648 USD anuales proyectados) a Capex Cero
+* **Ahorro Demostrado:** +$4,863.79 USD netos en muestra (+$48,648 USD/año proyectados) a Capex Cero
+* **Capacidad Recuperada:** +78.0 horas de operario devueltas a línea productiva
 
 ---
 
-## 🗺️ Mapa de Entregables y Checklist
+## 🗺️ Mapa de Entregables y Checklist por Nivel de Gestión
 
-### 🧪 Nivel 1: Datos, Costo de Calidad (COPQ) y Modelo de Decisión
-- [x] **Configuración base y entorno:**
-  - [x] Carpetas base (`notebooks/`, `src/`, `entregables_planta/`, `templates/`, `static/`, `docs/`).
-  - [x] Requerimientos (`requirements.txt`), `Procfile`, `.gitignore`.
-- [x] **Notebook Ejecutivo (`notebooks/01_control_calidad_copq_y_decision.ipynb`):**
-  - [x] Exploración y diagnóstico de 10,000 eventos (defectos, severidades, métodos).
-  - [x] Cuantificación del Costo de No Calidad (COPQ) y análisis de la trampa del retrabajo severo ($126.78 USD vs $101.31 USD).
-  - [x] Identificación de causas operativas (velocidad excesiva +49% defectos, antigüedad de activos +63% defectos, grado de material).
-  - [x] Modelo de probabilidad de éxito ($P(\text{Final Pass} = 1)$) y regla de decisión financiera $\mathbb{E}[\text{Beneficio}]$.
-  - [x] Exportación de métricas consolidadas (`data/processed/resumen_kpis_calidad.json`) y 3 gráficos ejecutivos.
+### 🏛️ Nivel 1: Dirección y Gerencia de Planta (Power BI & Finanzas COPQ)
+- [x] **Dataset Enriquecido para BI (`data/processed/powerbi_calidad_copq.csv`):**
+  - [x] 10,000 registros con variables calculadas: Categoría COPQ (Falla Interna, Externa, Evaluación), Desenlace Operativo, Costo Pérdida Doble, Rangos de Velocidad y Rangos de Antigüedad.
+- [x] **Especificación Oficial de Power BI ([`powerbi/ESPECIFICACION_DASHBOARD_POWERBI.md`](powerbi/ESPECIFICACION_DASHBOARD_POWERBI.md)):**
+  - [x] Arquitectura de datos estrella (`FactCalidad` vinculada a dimensiones de tiempo, línea, defecto e inspección).
+  - [x] Diccionario completo de medidas DAX (`[COPQ Total USD]`, `[Tasa Scrap %]`, `[Tasa Retrabajo %]`, `[Tasa Escape Garantía %]`, `[Ahorro Proyectado Anual USD]`).
+  - [x] Wireframe y distribución ejecutiva de las 3 páginas clave (1. Resumen Ejecutivo COPQ, 2. Análisis Causa Raíz & Desempeño de Piso, 3. Eficacia de Inspección & Blindaje de Cliente).
 
-### 🏭 Nivel 2: Entregables Prácticos de Planta (`entregables_planta/`)
-- [x] **Matriz Excel de Decisión en Piso (`Matriz_Decision_Retrabajo_Piso.xlsx`):**
-  - [x] Herramienta interactiva de 1 sola página con semáforo automatizado para supervisores de línea.
-  - [x] Fórmulas dinámicas de costo esperado, beneficio neto y matriz visual por tipo de defecto.
-- [x] **Ficha Ejecutiva STAR (`Ficha_Ejecutiva_STAR_Proyecto.md`):**
-  - [x] Resumen ejecutivo de 1 página con el storytelling comercial para CV, LinkedIn y entrevistas laborales.
-- [x] **Protocolo CAPA / 8D (`Protocolo_CAPA_8D_Visual.md`):**
-  - [x] Plan formal de contención, análisis de causa raíz (Ishikawa 4M + 5 Porqués) y acciones preventivas.
+---
 
-### 🌐 Nivel 3: Aplicación Web Interactiva (Semáforo en Piso)
-- [x] **Servidor y API (`server.py`):**
-  - [x] Endpoints de cálculo en vivo de decisión (`/api/decide`) y descarga de plantilla (`/download/excel`).
-  - [x] Verificado localmente con código HTTP 200 y lógica de contingencia.
-- [x] **Interfaz de Usuario (`templates/index.html`):**
-  - [x] Tarjetas KPI ejecutivas de impacto (Ahorro directo, Horas recuperadas, Scrap de doble costo erradicado).
-  - [x] Simulador interactivo tipo semáforo en tiempo real con barra de probabilidad y dictamen inmediato.
-  - [x] Gráficos interactivos Chart.js de costo por desenlace y efectividad por severidad.
+### 🔬 Nivel 2: Ingeniería de Procesos & Six Sigma (Reporte A3 de Lean Manufacturing)
+- [x] **Reporte A3 Formal ([`entregables_planta/Reporte_A3_Resolucion_Problemas_Calidad.md`](entregables_planta/Reporte_A3_Resolucion_Problemas_Calidad.md)):**
+  - [x] Estructurado bajo la metodología oficial de Toyota (7 bloques: Antecedentes, Condición Actual, Metas SMART, Análisis Causa Raíz Ishikawa 4M + 5 Porqués, Contramedidas CAPA, Confirmación de Efectos y Estandarización).
+  - [x] Cuantificación de la trampa del retrabajo severo ($126.78 USD vs $101.31 USD).
+  - [x] Demostración de las 3 causas raíz: velocidad forzada (+49% defectos), máquinas >8 años (+63% fallas) y fuga de inspección manual (1.61% vs 0.93%).
+- [x] **Notebook Estadístico Ejecutado ([`notebooks/01_control_calidad_copq_y_decision.ipynb`](notebooks/01_control_calidad_copq_y_decision.ipynb)):**
+  - [x] Análisis exploratorio y pruebas estadísticas sobre 10,000 eventos reales.
+  - [x] Gráficos ejecutivos exportados en `data/processed/` (`grafico_costo_desenlace.png`, `grafico_severidad_retrabajo.png`, `grafico_causas_raiz.png`).
 
-### 📖 Nivel 4: Guía Maestra de Entrevistas Laborales
-- [x] **Guía de Entrevista (`EXPLICACION_PASO_A_PASO_PROYECTO.md`):**
+---
+
+### 🏭 Nivel 3: Operación y Piso de Planta (One-Point Lesson & Matriz Física)
+- [x] **One-Point Lesson Plastificada ([`entregables_planta/OPL_Criterios_Calidad_Piso.md`](entregables_planta/OPL_Criterios_Calidad_Piso.md)):**
+  - [x] Estándar visual de 1 sola página para ubicar a pie de máquina en estaciones de inspección.
+  - [x] Criterios físicos y tolerancias medibles para 5 tipos de defecto clasificados en 3 severidades.
+  - [x] Flujo físico de 3 gavetas: Verde (Reproceso en banco), Amarilla (Cuarentena / Supervisor) y Roja (Scrap directo e irreversible).
+- [x] **Libro Excel de Piso & Resumen Financiero ([`entregables_planta/Matriz_Decision_Retrabajo_Piso.xlsx`](entregables_planta/Matriz_Decision_Retrabajo_Piso.xlsx)):**
+  - [x] Hoja 1: `OPL_Criterios_Calidad_Piso` formateada para impresión directa en hoja membretada.
+  - [x] Hoja 2: `Resumen_Ejecutivo_COPQ` con desglose de costos por desenlace y fórmulas de retorno económico.
+
+---
+
+### 🎙️ Nivel 4: Estrategia de Entrevista Laboral y Venta del Perfil
+- [x] **Guía Maestra para Entrevistas ([`EXPLICACION_PASO_A_PASO_PROYECTO.md`](EXPLICACION_PASO_A_PASO_PROYECTO.md)):**
   - [x] Pitch de 30 segundos (Elevator Pitch) y 2 minutos (Estructura STAR).
   - [x] Las 3 cifras clave a memorizar.
-  - [x] Respuestas modelo a las 7 preguntas más difíciles de Directores de Planta y Gerentes de Calidad.
-  - [x] Vínculo con la experiencia real en laboratorio de calidad (Agua Azul e Incarpalm).
+  - [x] Respuestas a las 7 preguntas más desafiantes de Gerentes de Planta y Directores de Calidad.
+  - [x] Alineación con la experiencia real en laboratorio de calidad (Agua Azul e Incarpalm).

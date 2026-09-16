@@ -1,17 +1,20 @@
 import openpyxl
 from openpyxl.styles import Font, PatternFill, Alignment, Border, Side
+from openpyxl.utils import get_column_letter
 
 wb = openpyxl.Workbook()
 
-# Sheet 1: Calculadora de Piso
+# ==========================================
+# HOJA 1: LECCIÓN DE UN PUNTO (OPL) DE PISO
+# ==========================================
 ws1 = wb.active
-ws1.title = 'Semaforo_Decision_Piso'
+ws1.title = 'OPL_Criterios_Calidad_Piso'
 ws1.views.sheetView[0].showGridLines = True
 
 # Paleta corporativa sobria
 NAVY_HEADER = '1B365D'
 WHITE = 'FFFFFF'
-LIGHT_GRAY = 'F2F4F7'
+LIGHT_GRAY = 'F8F9FA'
 BORDER_GRAY = 'D0D5DD'
 GREEN_FILL = 'D1E7DD'
 GREEN_TEXT = '0F5132'
@@ -20,188 +23,264 @@ YELLOW_TEXT = '664D03'
 RED_FILL = 'F8D7DA'
 RED_TEXT = '842029'
 
-font_title = Font(name='Calibri', size=16, bold=True, color=NAVY_HEADER)
-font_subtitle = Font(name='Calibri', size=11, italic=True, color='475467')
-font_sec_header = Font(name='Calibri', size=12, bold=True, color=WHITE)
-font_label = Font(name='Calibri', size=11, bold=True)
-font_val = Font(name='Calibri', size=11)
-font_bold = Font(name='Calibri', size=11, bold=True)
+font_title = Font(name='Calibri', size=15, bold=True, color=NAVY_HEADER)
+font_subtitle = Font(name='Calibri', size=10, italic=True, color='475467')
+font_sec_header = Font(name='Calibri', size=11, bold=True, color=WHITE)
+font_col_header = Font(name='Calibri', size=10, bold=True, color=WHITE)
+font_label = Font(name='Calibri', size=10, bold=True)
+font_val = Font(name='Calibri', size=10)
+font_bold = Font(name='Calibri', size=10, bold=True)
 
 fill_sec = PatternFill(start_color=NAVY_HEADER, end_color=NAVY_HEADER, fill_type='solid')
-fill_input = PatternFill(start_color='E8F4FD', end_color='E8F4FD', fill_type='solid')
+fill_subhdr = PatternFill(start_color='34495E', end_color='34495E', fill_type='solid')
 fill_kpi = PatternFill(start_color=LIGHT_GRAY, end_color=LIGHT_GRAY, fill_type='solid')
 
 thin = Side(border_style='thin', color=BORDER_GRAY)
 border_cell = Border(top=thin, left=thin, right=thin, bottom=thin)
 
-# Title
-ws1.merge_cells('B2:H2')
-ws1['B2'] = 'HERRAMIENTA DE DECISIÓN EN PISO: SEMÁFORO RETRABAJO VS. SCRAP'
-ws1['B2'].font = font_title
-ws1['B2'].alignment = Alignment(vertical='center')
+# Título y encabezado formal
+ws1.merge_cells('A2:G2')
+ws1['A2'] = 'LECCIÓN DE UN PUNTO (OPL) | ESTÁNDAR VISUAL DE CALIDAD EN PISO'
+ws1['A2'].font = font_title
+ws1['A2'].alignment = Alignment(vertical='center')
 
-ws1.merge_cells('B3:H3')
-ws1['B3'] = 'Aseguramiento de Calidad & Control de Costos (COPQ) | Ing. Angelo Apolo'
-ws1['B3'].font = font_subtitle
-ws1['B3'].alignment = Alignment(vertical='center')
+ws1.merge_cells('A3:G3')
+ws1['A3'] = 'Código: OPL-CAL-003 | Revisión: 02 | Aprobado: Ing. Angelo Apolo (Jefe QA/QC & Black Belt) | Líneas A & B'
+ws1['A3'].font = font_subtitle
+ws1['A3'].alignment = Alignment(vertical='center')
 
-# Section 1: Inputs
-ws1.merge_cells('B5:D5')
-ws1['B5'] = '1. PARÁMETROS DE INSPECCIÓN EN LÍNEA'
-ws1['B5'].font = font_sec_header
-ws1['B5'].fill = fill_sec
-ws1['B5'].alignment = Alignment(horizontal='center', vertical='center')
+# Regla de Oro destacada en Rojo Alerta
+ws1.merge_cells('A5:G5')
+ws1['A5'] = '⚠️ REGLA DE ORO DE PLANTA: PROHIBIDO RETRABAJAR DEFECTOS EN SEVERIDAD 3 (GRIETAS O DEFORMACIONES CRÍTICAS)'
+ws1['A5'].font = Font(name='Calibri', size=11, bold=True, color=RED_TEXT)
+ws1['A5'].fill = PatternFill(start_color=RED_FILL, end_color=RED_FILL, fill_type='solid')
+ws1['A5'].alignment = Alignment(horizontal='center', vertical='center')
 
-inputs = [
-    ('Tipo de Defecto:', 'Grieta / Fisura', 'B6', 'C6', 'D6'),
-    ('Severidad del Defecto (1 a 3):', 2, 'B7', 'C7', 'D7'),
-    ('Método de Inspección:', 'Visión Artificial', 'B8', 'C8', 'D8'),
-    ('Antigüedad de Máquina (años):', 5.0, 'B9', 'C9', 'D9'),
-    ('Velocidad de Operación (u/h):', 125, 'B10', 'C10', 'D10'),
-    ('Grado de Materia Prima:', 'Grado B', 'B11', 'C11', 'D11'),
+ws1.merge_cells('A6:G6')
+ws1['A6'] = 'Más del 50% de las piezas graves fracasan en reproceso. Retrabajar cuesta $126.78 USD vs. $101.31 USD de Scrap directo. ¡Toda pieza severa va a Gaveta Roja!'
+ws1['A6'].font = Font(name='Calibri', size=9, italic=True, color=RED_TEXT)
+ws1['A6'].alignment = Alignment(horizontal='center', vertical='center')
+
+# Encabezados de la matriz visual
+headers_opl = [
+    'Tipo de Defecto',
+    'Severidad 1 (Leve)\n🟢 GAVETA VERDE: REPROCESO',
+    'Severidad 2 (Moderada)\n🟡 GAVETA AMARILLA: EVALUAR',
+    'Severidad 3 (Crítica / Estructural)\n🔴 GAVETA ROJA: SCRAP DIRECTO',
+    'Criterio Físico / Tolerancia',
+    'Acción Inmediata en Línea',
+    'Ahorro Evitado'
 ]
 
-for label, default_val, c_lbl, c_val, c_note in inputs:
-    ws1[c_lbl] = label
-    ws1[c_lbl].font = font_label
-    ws1[c_lbl].border = border_cell
+ws1.row_dimensions[8].height = 32
+cols_opl = ['A', 'B', 'C', 'D', 'E', 'F', 'G']
+for i, h in enumerate(headers_opl):
+    col = cols_opl[i]
+    ws1[f'{col}8'] = h
+    ws1[f'{col}8'].font = font_col_header
+    ws1[f'{col}8'].fill = fill_subhdr
+    ws1[f'{col}8'].alignment = Alignment(horizontal='center', vertical='center', wrap_text=True)
+    ws1[f'{col}8'].border = border_cell
+
+# Filas de la matriz de defectos
+mat_rows = [
+    (
+        'Grieta / Fisura\n(crack)',
+        'Microfisura capilar no pasante (<2 mm).\nÉxito histórico: 82%',
+        'Fisura superficial (2 - 5 mm).\nAutorizado solo con máquina <6 años.\nÉxito histórico: 58%',
+        'Fisura pasante o ramificada (>5 mm).\nÉxito: <38% (Fracaso garantizado).',
+        'Inspección con lupa 10x y líquido penetrante.',
+        'Marcar con pintura roja indeleble y depositar en contenedor de Scrap.',
+        '+$25.47 USD / pieza'
+    ),
+    (
+        'Desviación Dimensional\n(dimension)',
+        'Desvío menor respecto a cota (±0.05 mm).\nÉxito histórico: 88%',
+        'Desvío moderado (±0.10 a 0.25 mm).\nRequiere verificación de espesor de pared.\nÉxito histórico: 76%',
+        'Desvío crítico (>0.30 mm) o falta de material.\nImposible recuperar tolerancia.',
+        'Medición con micrómetro digital / galga pasa-no pasa.',
+        'Ajuste de mordazas de máquina y verificación de setpoint.',
+        '+$25.47 USD / pieza'
+    ),
+    (
+        'Acabado Superficial\n(finish)',
+        'Rebaba menor o marca de enfriamiento.\nÉxito histórico: 87%',
+        'Textura irregular o mancha no penetrante.\nAutorizado si no afecta cara de ensamble.\nÉxito histórico: 72%',
+        'Porosidad abierta o desgarre térmico.\nDefecto penetra >20% del espesor de pared.',
+        'Comparación contra muestra patrón de rugosidad.',
+        'Desbarbado manual en banco auxiliar (máximo 10 min).',
+        '+$25.47 USD / pieza'
+    ),
+    (
+        'Rayón / Abrasión\n(scratch)',
+        'Rayón leve que no traba la uña (<0.05 mm).\nÉxito histórico: 85%',
+        'Rayón visible (0.05 - 0.15 mm).\nEvaluar si compromete estanqueidad o sello.\nÉxito histórico: 62%',
+        'Surco profundo (>0.20 mm) o daño en junta.\nRiesgo crítico de reclamo a cliente.',
+        'Inspección visual bajo luz halógena estandarizada.',
+        'Pulido abrasivo solo en caras no funcionales.',
+        '+$25.47 USD / pieza'
+    ),
+    (
+        'Contaminación\n(contamination)',
+        'Partículas secas de polvo superficial.\nÉxito histórico: 86%',
+        'Mancha de lubricante o grasa lavable.\nRequiere desengrase ultrasónico controlado.\nÉxito histórico: 65%',
+        'Inclusiones fundidas o viruta metálica incrustada.\nFalla estructural irreparable.',
+        'Verificación con hisopado e inspección óptica.',
+        'Limpieza neumática en estación de soplado.',
+        '+$25.47 USD / pieza'
+    )
+]
+
+for r_idx, r_data in enumerate(mat_rows, start=9):
+    ws1.row_dimensions[r_idx].height = 42
+    ws1[f'A{r_idx}'] = r_data[0]
+    ws1[f'A{r_idx}'].font = font_bold
+    ws1[f'A{r_idx}'].alignment = Alignment(horizontal='center', vertical='center', wrap_text=True)
+    ws1[f'A{r_idx}'].border = border_cell
     
-    ws1[c_val] = default_val
-    ws1[c_val].font = font_bold
-    ws1[c_val].fill = fill_input
-    ws1[c_val].alignment = Alignment(horizontal='center', vertical='center')
-    ws1[c_val].border = border_cell
-
-ws1['D6'] = 'Opciones: Dimensión / Acabado / Grieta / Rayón / Contaminación'
-ws1['D7'] = '1 = Leve | 2 = Moderado | 3 = Crítico/Estructural'
-ws1['D8'] = 'Manual / Sensor / Visión Artificial'
-ws1['D9'] = 'Promedio planta: 6.0 años'
-ws1['D10'] = 'Nominal: 115 u/h (Forzada: >135 u/h)'
-ws1['D11'] = 'Grado A (Premium) / Grado B / Grado C'
-
-for row in range(6, 12):
-    ws1[f'D{row}'].font = Font(name='Calibri', size=9, italic=True, color='667085')
-    ws1[f'D{row}'].alignment = Alignment(vertical='center')
-
-# Section 2: Output / Semáforo
-ws1.merge_cells('F5:H5')
-ws1['F5'] = '2. RECOMENDACIÓN OPERATIVA (SEMÁFORO)'
-ws1['F5'].font = font_sec_header
-ws1['F5'].fill = fill_sec
-ws1['F5'].alignment = Alignment(horizontal='center', vertical='center')
-
-# Formula for Prob Exito
-ws1['F6'] = 'Probabilidad Estimada de Éxito:'
-ws1['F6'].font = font_label
-ws1['F6'].border = border_cell
-
-ws1['G6'] = '=MAX(0.05, MIN(0.98, 1.15 - (C7*0.24) - (C9*0.012) - ((C10-100)*0.0015) + IF(C8="Visión Artificial", 0.05, IF(C8="Sensor", 0.02, 0))))'
-ws1['G6'].number_format = '0.0%'
-ws1['G6'].font = Font(name='Calibri', size=12, bold=True)
-ws1['G6'].alignment = Alignment(horizontal='center', vertical='center')
-ws1['G6'].border = border_cell
-
-ws1.merge_cells('F7:F8')
-ws1['F7'] = 'DICTAMEN EN PISO:'
-ws1['F7'].font = Font(name='Calibri', size=12, bold=True)
-ws1['F7'].alignment = Alignment(horizontal='center', vertical='center')
-ws1['F7'].border = border_cell
-ws1['F8'].border = border_cell
-
-ws1.merge_cells('G7:H8')
-ws1['G7'] = '=IF(C7=3, "🔴 SCRAP DIRECTO", IF(G6>=0.75, "🟢 RETRABAJAR", IF(G6>=0.55, "🟡 EVALUAR SUPERVISOR", "🔴 SCRAP DIRECTO")))'
-ws1['G7'].font = Font(name='Calibri', size=14, bold=True)
-ws1['G7'].alignment = Alignment(horizontal='center', vertical='center')
-ws1['G7'].border = border_cell
-
-# Cost indicators
-ws1['F9'] = 'Costo Esperado si se Retrabaja:'
-ws1['F9'].font = font_label
-ws1['F9'].border = border_cell
-ws1['G9'] = '=(G6*36.67) + ((1-G6)*126.78)'
-ws1['G9'].number_format = '$#,##0.00'
-ws1['G9'].font = font_bold
-ws1['G9'].alignment = Alignment(horizontal='center')
-ws1['G9'].border = border_cell
-
-ws1['F10'] = 'Costo si se envía a Scrap Directo:'
-ws1['F10'].font = font_label
-ws1['F10'].border = border_cell
-ws1['G10'] = 101.31
-ws1['G10'].number_format = '$#,##0.00'
-ws1['G10'].font = font_bold
-ws1['G10'].alignment = Alignment(horizontal='center')
-ws1['G10'].border = border_cell
-
-ws1['F11'] = 'Beneficio Neto de la Decisión:'
-ws1['F11'].font = font_label
-ws1['F11'].border = border_cell
-ws1['G11'] = '=IF(LEFT(G7,1)="🔴", 126.78 - 101.31, 101.31 - G9)'
-ws1['G11'].number_format = '+$#,##0.00;-$#,##0.00;$0.00'
-ws1['G11'].font = Font(name='Calibri', size=12, bold=True, color='0F5132')
-ws1['G11'].alignment = Alignment(horizontal='center')
-ws1['G11'].border = border_cell
-
-# Section 3: Matriz Guía de Piso
-ws1.merge_cells('B14:H14')
-ws1['B14'] = '3. TABLA GUÍA RÁPIDA DE DECISIÓN SEGÚN SEVERIDAD Y DEFECTO'
-ws1['B14'].font = font_sec_header
-ws1['B14'].fill = fill_sec
-ws1['B14'].alignment = Alignment(horizontal='center', vertical='center')
-
-headers_tab = ['Tipo de Defecto', 'Severidad 1 (Leve)', 'Severidad 2 (Moderado)', 'Severidad 3 (Grave/Estructural)', 'Regla Operativa de Planta']
-cols_tab = ['B', 'C', 'D', 'E', 'F']
-for i, h in enumerate(headers_tab):
-    ws1[f'{cols_tab[i]}15'] = h
-    ws1[f'{cols_tab[i]}15'].font = Font(name='Calibri', size=10, bold=True, color=WHITE)
-    ws1[f'{cols_tab[i]}15'].fill = PatternFill(start_color='34495E', end_color='34495E', fill_type='solid')
-    ws1[f'{cols_tab[i]}15'].alignment = Alignment(horizontal='center', vertical='center')
-    ws1[f'{cols_tab[i]}15'].border = border_cell
-ws1.merge_cells('F15:H15')
-
-mat_data = [
-    ('Dimensión / Tolerancia', '🟢 Retrabajar (88% éxito)', '🟢 Retrabajar (76% éxito)', '🔴 Scrap Directo (<48%)', 'Ajuste de mordazas y calibración en línea.'),
-    ('Acabado Superficial', '🟢 Retrabajar (87% éxito)', '🟢 Retrabajar (72% éxito)', '🔴 Scrap Directo (<48%)', 'Pulido o reacondicionado térmico permitido.'),
-    ('Contaminación', '🟢 Retrabajar (86% éxito)', '🟡 Evaluar (65% éxito)', '🔴 Scrap Directo (<45%)', 'Limpieza solo si no penetra matriz del material.'),
-    ('Rayón Profundo', '🟢 Retrabajar (85% éxito)', '🟡 Evaluar (62% éxito)', '🔴 Scrap Directo (<42%)', 'Inspección de guías mecánicas y rodillos.'),
-    ('Grieta / Fisura', '🟢 Retrabajar (82% éxito)', '🟡 Evaluar (58% éxito)', '🔴 Scrap Directo (<38%)', 'PÉRDIDA ESTRUCTURAL: Riesgo crítico de escape a cliente.')
-]
-
-for r_idx, row_vals in enumerate(mat_data, start=16):
-    ws1[f'B{r_idx}'] = row_vals[0]
-    ws1[f'B{r_idx}'].font = font_bold
+    ws1[f'B{r_idx}'] = r_data[1]
+    ws1[f'B{r_idx}'].font = font_val
+    ws1[f'B{r_idx}'].fill = PatternFill(start_color=GREEN_FILL, end_color=GREEN_FILL, fill_type='solid')
+    ws1[f'B{r_idx}'].alignment = Alignment(vertical='center', wrap_text=True)
     ws1[f'B{r_idx}'].border = border_cell
     
-    ws1[f'C{r_idx}'] = row_vals[1]
+    ws1[f'C{r_idx}'] = r_data[2]
     ws1[f'C{r_idx}'].font = font_val
-    ws1[f'C{r_idx}'].fill = PatternFill(start_color=GREEN_FILL, end_color=GREEN_FILL, fill_type='solid')
-    ws1[f'C{r_idx}'].alignment = Alignment(horizontal='center')
+    ws1[f'C{r_idx}'].fill = PatternFill(start_color=YELLOW_FILL, end_color=YELLOW_FILL, fill_type='solid')
+    ws1[f'C{r_idx}'].alignment = Alignment(vertical='center', wrap_text=True)
     ws1[f'C{r_idx}'].border = border_cell
     
-    ws1[f'D{r_idx}'] = row_vals[2]
-    ws1[f'D{r_idx}'].font = font_val
-    fill_d = YELLOW_FILL if '🟡' in row_vals[2] else GREEN_FILL
-    ws1[f'D{r_idx}'].fill = PatternFill(start_color=fill_d, end_color=fill_d, fill_type='solid')
-    ws1[f'D{r_idx}'].alignment = Alignment(horizontal='center')
+    ws1[f'D{r_idx}'] = r_data[3]
+    ws1[f'D{r_idx}'].font = Font(name='Calibri', size=10, bold=True, color=RED_TEXT)
+    ws1[f'D{r_idx}'].fill = PatternFill(start_color=RED_FILL, end_color=RED_FILL, fill_type='solid')
+    ws1[f'D{r_idx}'].alignment = Alignment(vertical='center', wrap_text=True)
     ws1[f'D{r_idx}'].border = border_cell
     
-    ws1[f'E{r_idx}'] = row_vals[3]
-    ws1[f'E{r_idx}'].font = font_bold
-    ws1[f'E{r_idx}'].fill = PatternFill(start_color=RED_FILL, end_color=RED_FILL, fill_type='solid')
-    ws1[f'E{r_idx}'].alignment = Alignment(horizontal='center')
+    ws1[f'E{r_idx}'] = r_data[4]
+    ws1[f'E{r_idx}'].font = font_val
+    ws1[f'E{r_idx}'].alignment = Alignment(vertical='center', wrap_text=True)
     ws1[f'E{r_idx}'].border = border_cell
     
-    ws1.merge_cells(f'F{r_idx}:H{r_idx}')
-    ws1[f'F{r_idx}'] = row_vals[4]
-    ws1[f'F{r_idx}'].font = Font(name='Calibri', size=9, italic=True)
-    ws1[f'F{r_idx}'].alignment = Alignment(vertical='center')
+    ws1[f'F{r_idx}'] = r_data[5]
+    ws1[f'F{r_idx}'].font = font_val
+    ws1[f'F{r_idx}'].alignment = Alignment(vertical='center', wrap_text=True)
     ws1[f'F{r_idx}'].border = border_cell
-    ws1[f'H{r_idx}'].border = border_cell
+    
+    ws1[f'G{r_idx}'] = r_data[6]
+    ws1[f'G{r_idx}'].font = Font(name='Calibri', size=10, bold=True, color=GREEN_TEXT)
+    ws1[f'G{r_idx}'].alignment = Alignment(horizontal='center', vertical='center')
+    ws1[f'G{r_idx}'].border = border_cell
 
-# Adjust column widths
-col_widths = {'A': 3, 'B': 28, 'C': 26, 'D': 26, 'E': 26, 'F': 22, 'G': 22, 'H': 22}
-for col, width in col_widths.items():
+# Anchos de columna Hoja 1
+col_widths_ws1 = {'A': 22, 'B': 30, 'C': 32, 'D': 32, 'E': 28, 'F': 30, 'G': 20}
+for col, width in col_widths_ws1.items():
     ws1.column_dimensions[col].width = width
 
+# ==========================================
+# HOJA 2: RESUMEN EJECUTIVO COPQ & FINANZAS
+# ==========================================
+ws2 = wb.create_sheet(title='Resumen_Ejecutivo_COPQ')
+ws2.views.sheetView[0].showGridLines = True
+
+ws2.merge_cells('A2:F2')
+ws2['A2'] = 'CUADRO EJECUTIVO: COSTO DE NO CALIDAD (COPQ) Y RETORNO FINANCIERO'
+ws2['A2'].font = font_title
+ws2['A2'].alignment = Alignment(vertical='center')
+
+ws2.merge_cells('A3:F3')
+ws2['A3'] = 'Auditoría de 10,000 Eventos de Producción | Ahorro a Capex Cero por Optimización de Decisiones de Calidad'
+ws2['A3'].font = font_subtitle
+
+# Sección 1: Costo por Desenlace Operativo
+ws2.merge_cells('A5:E5')
+ws2['A5'] = '1. MATRIZ DE COSTO UNITARIO SEGÚN DESENLACE OPERATIVO'
+ws2['A5'].font = font_sec_header
+ws2['A5'].fill = fill_sec
+ws2['A5'].alignment = Alignment(horizontal='center', vertical='center')
+
+cost_headers = ['Desenlace Operativo', 'Eventos en Muestra', 'Costo Medio USD', 'Costo Total USD', 'Comportamiento en Planta']
+for i, ch in enumerate(cost_headers):
+    col = ['A', 'B', 'C', 'D', 'E'][i]
+    ws2[f'{col}6'] = ch
+    ws2[f'{col}6'].font = font_col_header
+    ws2[f'{col}6'].fill = fill_subhdr
+    ws2[f'{col}6'].alignment = Alignment(horizontal='center', vertical='center')
+    ws2[f'{col}6'].border = border_cell
+
+cost_rows = [
+    ('1. Aprobado Directo', 6728, 23.54, '=B7*C7', 'Flujo de calidad conforme a primera pasada (Right First Time).'),
+    ('2. Retrabajo Exitoso', 2033, 36.67, '=B8*C8', 'Recuperación económica rentable en banco auxiliar.'),
+    ('3. Scrap Directo', 57, 101.31, '=B9*C9', 'Pérdida de material contenida inmediatamente.'),
+    ('4. Retrabajo Fallido (Scrap)', 191, 126.78, '=B10*C10', 'PÉRDIDA DOBLE: Material destruido + mano de obra + energía.')
+]
+
+for idx, cr in enumerate(cost_rows, start=7):
+    ws2[f'A{idx}'] = cr[0]
+    ws2[f'A{idx}'].font = font_bold
+    ws2[f'A{idx}'].border = border_cell
+    
+    ws2[f'B{idx}'] = cr[1]
+    ws2[f'B{idx}'].font = font_val
+    ws2[f'B{idx}'].alignment = Alignment(horizontal='center')
+    ws2[f'B{idx}'].border = border_cell
+    
+    ws2[f'C{idx}'] = cr[2]
+    ws2[f'C{idx}'].font = font_bold
+    ws2[f'C{idx}'].number_format = '$#,##0.00'
+    ws2[f'C{idx}'].alignment = Alignment(horizontal='right')
+    ws2[f'C{idx}'].border = border_cell
+    
+    ws2[f'D{idx}'] = cr[3]
+    ws2[f'D{idx}'].font = font_bold
+    ws2[f'D{idx}'].number_format = '$#,##0.00'
+    ws2[f'D{idx}'].alignment = Alignment(horizontal='right')
+    ws2[f'D{idx}'].border = border_cell
+    
+    ws2[f'E{idx}'] = cr[4]
+    ws2[f'E{idx}'].font = Font(name='Calibri', size=9, italic=True)
+    ws2[f'E{idx}'].border = border_cell
+
+# Destacar fila 4 en rojo
+for col in ['A', 'B', 'C', 'D']:
+    ws2[f'{col}10'].fill = PatternFill(start_color=RED_FILL, end_color=RED_FILL, fill_type='solid')
+
+# Sección 2: KPIs de Impacto Financiero
+ws2.merge_cells('A13:E13')
+ws2['A13'] = '2. CUANTIFICACIÓN DEL IMPACTO FINANCIERO AHORRADO'
+ws2['A13'].font = font_sec_header
+ws2['A13'].fill = fill_sec
+ws2['A13'].alignment = Alignment(horizontal='center', vertical='center')
+
+kpi_table = [
+    ('Piezas en Scrap Doble Costo Erradicadas:', 191, 'Unidades severas no reprocesadas'),
+    ('Sobrecosto Evitado por Unidad:', 25.47, 'Diferencia ($126.78 - $101.31 USD)'),
+    ('Ahorro Neto Auditado en Muestra (10k eventos):', '=B14*B15', 'Ahorro directo inmediato'),
+    ('Horas Hombre Productivas Recuperadas:', 78.0, 'Horas de operario devueltas a línea'),
+    ('Ahorro Anualizado Proyectado (100k eventos/año):', '=B16*10', 'Impacto EBITDA anual a Capex Cero')
+]
+
+for idx, (lbl, val, note) in enumerate(kpi_table, start=14):
+    ws2[f'A{idx}'] = lbl
+    ws2[f'A{idx}'].font = font_label
+    ws2[f'A{idx}'].border = border_cell
+    
+    ws2[f'B{idx}'] = val
+    ws2[f'B{idx}'].font = Font(name='Calibri', size=11, bold=True, color=GREEN_TEXT if idx in [16, 18] else '000000')
+    if idx in [15, 16, 18]:
+        ws2[f'B{idx}'].number_format = '$#,##0.00'
+    ws2[f'B{idx}'].alignment = Alignment(horizontal='center')
+    ws2[f'B{idx}'].border = border_cell
+    
+    ws2.merge_cells(f'C{idx}:E{idx}')
+    ws2[f'C{idx}'] = note
+    ws2[f'C{idx}'].font = Font(name='Calibri', size=9, italic=True, color='667085')
+    ws2[f'C{idx}'].border = border_cell
+    ws2[f'D{idx}'].border = border_cell
+    ws2[f'E{idx}'].border = border_cell
+
+col_widths_ws2 = {'A': 42, 'B': 20, 'C': 22, 'D': 22, 'E': 45}
+for col, width in col_widths_ws2.items():
+    ws2.column_dimensions[col].width = width
+
 wb.save('entregables_planta/Matriz_Decision_Retrabajo_Piso.xlsx')
-print('[OK] Matriz Excel guardada exitosamente en entregables_planta/Matriz_Decision_Retrabajo_Piso.xlsx')
+print('[OK] Matriz Excel regenerada exitosamente como OPL y Tablero COPQ.')
