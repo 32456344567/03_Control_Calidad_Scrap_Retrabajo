@@ -1,4 +1,4 @@
-﻿import os
+import os
 import sys
 import threading
 import duckdb
@@ -466,5 +466,6 @@ def serve_dashboard():
 if __name__ == "__main__":
     import uvicorn
     port = int(os.environ.get("PORT", 8503))
+    is_dev = os.environ.get("RELOAD", "false").lower() == "true"
     print(f"Iniciando Executive Quality Dashboard en http://localhost:{port}")
-    uvicorn.run("server:app", host="0.0.0.0", port=port, reload=True)
+    uvicorn.run("server:app", host="0.0.0.0", port=port, reload=is_dev)

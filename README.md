@@ -1,4 +1,4 @@
-﻿# 🎯 Decisiones de Calidad, Reducción de Scrap y Costo de Retrabajo (COPQ)
+# 🎯 Decisiones de Calidad, Reducción de Scrap y Costo de Retrabajo (COPQ)
 ## Optimización de Decisiones Operativas en Piso mediante Lean Six Sigma DMAIC
 **Proyecto 03 | Portafolio Técnico de Operaciones, Procesos y Calidad Industrial**  
 **Autor:** Angelo Apolo | Ing. Químico / Industrial | Máster en Dirección de Proyectos y Empresas  
@@ -78,7 +78,6 @@ flowchart TD
 ```text
 03_Control_Calidad_Scrap_Retrabajo/
 ├── README.md                                         <-- Este resumen ejecutivo
-├── PROJECT_TRACKER.md                               <-- Tablero y checklist de avance (100% completado)
 ├── EXPLICACION_PASO_A_PASO_PROYECTO.md              <-- Guía de defensa para entrevistas laborales (lectura de 10 min)
 ├── server.py                                        <-- Servidor FastAPI + DuckDB de alta velocidad (puerto 8503)
 ├── templates/
