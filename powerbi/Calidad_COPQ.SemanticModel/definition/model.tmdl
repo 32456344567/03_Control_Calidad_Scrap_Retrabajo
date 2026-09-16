@@ -6,7 +6,9 @@ model Calidad_COPQ_DB
 		legacyRedirects
 		returnErrorValuesAsNull
 
-annotation PBI_ProTooling = ["MCP-PBIModeling"]
+annotation PBI_ProTooling = ["MCP-PBIModeling","DevMode"]
+
+annotation PBI_QueryOrder = ["FactCalidad"]
 
 ref table FactCalidad
 

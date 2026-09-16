@@ -1,0 +1,54 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "bar_inspection",
+  "position": {
+    "x": 30,
+    "y": 160,
+    "z": 3000,
+    "height": 520,
+    "width": 600,
+    "tabOrder": 3000
+  },
+  "visual": {
+    "visualType": "clusteredColumnChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FactCalidad"
+                    }
+                  },
+                  "Property": "inspection_method"
+                }
+              },
+              "queryRef": "FactCalidad.inspection_method",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FactCalidad"
+                    }
+                  },
+                  "Property": "Tasa Escape Garantia %"
+                }
+              },
+              "queryRef": "FactCalidad.Tasa Escape Garantia %"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

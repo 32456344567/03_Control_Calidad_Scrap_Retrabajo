@@ -1,4 +1,4 @@
-# 📋 PROJECT TRACKER: Control de Calidad, Scrap y Retrabajo (Enfoque Industrial)
+﻿# 📋 PROJECT TRACKER: Control de Calidad, Scrap y Retrabajo (Enfoque Industrial)
 
 Este tablero registra el avance y entrega de cada pieza del Proyecto 03, asegurando rigor técnico, aplicabilidad real en planta y alta credibilidad ante Gerentes de Operaciones y Directores de Calidad.
 
@@ -6,22 +6,28 @@ Este tablero registra el avance y entrega de cada pieza del Proyecto 03, asegura
 
 ## 📌 Estado General del Proyecto
 * **Proyecto:** 03_Control_Calidad_Scrap_Retrabajo
-* **Enfoque:** Six Sigma DMAIC + Gestión de COPQ + Reporte A3 Lean + Tablero Power BI + OPL de Piso
+* **Enfoque:** Six Sigma DMAIC + Gestión de COPQ + Dashboard Ejecutivo en Código + Reporte A3 Lean + OPL de Piso
 * **Estado:** 🟢 100% Completado & Verificado
-* **Ahorro Demostrado:** +$4,863.79 USD netos en muestra (+$48,648 USD/año proyectados) a Capex Cero
+* **Ahorro Demostrado:** +$4,878.44 USD netos en muestra (+$48,648 USD/año proyectados) a Capex Cero
 * **Capacidad Recuperada:** +78.0 horas de operario devueltas a línea productiva
 
 ---
 
 ## 🗺️ Mapa de Entregables y Checklist por Nivel de Gestión
 
-### 🏛️ Nivel 1: Dirección y Gerencia de Planta (Power BI & Finanzas COPQ)
+### 🏛️ Nivel 1: Dirección y Gerencia de Planta (Dashboard Ejecutivo & Finanzas COPQ)
+- [x] **Dashboard Web en Código Nativo ([`server.py`](server.py) & [`templates/index.html`](templates/index.html)):**
+  - [x] Backend FastAPI + DuckDB en memoria sirviendo endpoints analíticos de alta velocidad en milisegundos.
+  - [x] Interfaz ejecutiva moderna con Tailwind CSS y ApexCharts con paleta corporativa (`#1B365D` navy).
+  - [x] Segmentadores dinámicos por Planta, Línea y Turno con actualización reactiva sin recarga de página.
+  - [x] Navegación entre 3 vistas: (1) Resumen Ejecutivo COPQ, (2) Causa Raíz & Desempeño Operativo, (3) Eficacia Inspección & Blindaje Garantía.
+  - [x] Tabla interactiva de auditoría de eventos de calidad con buscador en tiempo real y badges de severidad.
 - [x] **Dataset Enriquecido para BI (`data/processed/powerbi_calidad_copq.csv`):**
   - [x] 10,000 registros con variables calculadas: Categoría COPQ (Falla Interna, Externa, Evaluación), Desenlace Operativo, Costo Pérdida Doble, Rangos de Velocidad y Rangos de Antigüedad.
 - [x] **Especificación Oficial de Power BI ([`powerbi/ESPECIFICACION_DASHBOARD_POWERBI.md`](powerbi/ESPECIFICACION_DASHBOARD_POWERBI.md)):**
   - [x] Arquitectura de datos estrella (`FactCalidad` vinculada a dimensiones de tiempo, línea, defecto e inspección).
   - [x] Diccionario completo de medidas DAX (`[COPQ Total USD]`, `[Tasa Scrap %]`, `[Tasa Retrabajo %]`, `[Tasa Escape Garantía %]`, `[Ahorro Proyectado Anual USD]`).
-  - [x] Wireframe y distribución ejecutiva de las 3 páginas clave (1. Resumen Ejecutivo COPQ, 2. Análisis Causa Raíz & Desempeño de Piso, 3. Eficacia de Inspección & Blindaje de Cliente).
+  - [x] Wireframes y capturas de diseño de las 3 páginas en `powerbi/capturas_dashboard/`.
 
 ---
 

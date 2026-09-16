@@ -1,0 +1,36 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "p3_card1",
+  "position": {
+    "x": 30,
+    "y": 20,
+    "z": 0,
+    "height": 110,
+    "width": 380,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FactCalidad"
+                    }
+                  },
+                  "Property": "Total Eventos"
+                }
+              },
+              "queryRef": "FactCalidad.Total Eventos"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

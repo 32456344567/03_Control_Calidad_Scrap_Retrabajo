@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Calidad_COPQ"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "9717218e-9cd1-449d-b19f-f4f249daa8a4"
+  }
+}

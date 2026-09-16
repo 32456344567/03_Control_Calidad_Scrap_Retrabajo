@@ -1,0 +1,54 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "pie_copq_cat",
+  "position": {
+    "x": 650,
+    "y": 160,
+    "z": 6000,
+    "height": 520,
+    "width": 600,
+    "tabOrder": 6000
+  },
+  "visual": {
+    "visualType": "pieChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FactCalidad"
+                    }
+                  },
+                  "Property": "categoria_copq"
+                }
+              },
+              "queryRef": "FactCalidad.categoria_copq",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FactCalidad"
+                    }
+                  },
+                  "Property": "Costo Total Eventos USD"
+                }
+              },
+              "queryRef": "FactCalidad.Costo Total Eventos USD"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

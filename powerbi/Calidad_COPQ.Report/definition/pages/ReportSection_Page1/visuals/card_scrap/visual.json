@@ -1,0 +1,36 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "card_scrap",
+  "position": {
+    "x": 280,
+    "y": 20,
+    "z": 1000,
+    "height": 110,
+    "width": 220,
+    "tabOrder": 1000
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FactCalidad"
+                    }
+                  },
+                  "Property": "Tasa Scrap %"
+                }
+              },
+              "queryRef": "FactCalidad.Tasa Scrap %"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

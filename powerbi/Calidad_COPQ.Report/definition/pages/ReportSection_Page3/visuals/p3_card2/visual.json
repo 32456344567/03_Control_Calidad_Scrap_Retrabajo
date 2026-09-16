@@ -1,0 +1,36 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "p3_card2",
+  "position": {
+    "x": 450,
+    "y": 20,
+    "z": 1000,
+    "height": 110,
+    "width": 380,
+    "tabOrder": 1000
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FactCalidad"
+                    }
+                  },
+                  "Property": "Reclamos Garantia 90d"
+                }
+              },
+              "queryRef": "FactCalidad.Reclamos Garantia 90d"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

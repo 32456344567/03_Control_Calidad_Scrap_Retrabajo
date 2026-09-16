@@ -1,0 +1,36 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "p2_card4",
+  "position": {
+    "x": 960,
+    "y": 20,
+    "z": 3000,
+    "height": 110,
+    "width": 280,
+    "tabOrder": 3000
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FactCalidad"
+                    }
+                  },
+                  "Property": "Perdida Retrabajo Fallido USD"
+                }
+              },
+              "queryRef": "FactCalidad.Perdida Retrabajo Fallido USD"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

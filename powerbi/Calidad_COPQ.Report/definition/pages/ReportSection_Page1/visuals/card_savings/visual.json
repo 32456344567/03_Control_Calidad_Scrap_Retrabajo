@@ -1,0 +1,54 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "card_savings",
+  "position": {
+    "x": 1000.1331853496116,
+    "y": 20.333031422002367,
+    "z": 4000,
+    "height": 109.15627394969692,
+    "width": 280.07909474785362,
+    "tabOrder": 4000
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FactCalidad"
+                    }
+                  },
+                  "Property": "Ahorro Proyectado Anual USD"
+                }
+              },
+              "queryRef": "FactCalidad.Ahorro Proyectado Anual USD"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "619c9f3066191622189e",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "FactCalidad"
+              }
+            },
+            "Property": "Ahorro Proyectado Anual USD"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

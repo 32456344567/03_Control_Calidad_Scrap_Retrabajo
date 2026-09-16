@@ -1,0 +1,54 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "pie_grade",
+  "position": {
+    "x": 650,
+    "y": 160,
+    "z": 4000,
+    "height": 520,
+    "width": 600,
+    "tabOrder": 4000
+  },
+  "visual": {
+    "visualType": "pieChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FactCalidad"
+                    }
+                  },
+                  "Property": "material_grade"
+                }
+              },
+              "queryRef": "FactCalidad.material_grade",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FactCalidad"
+                    }
+                  },
+                  "Property": "Total Eventos"
+                }
+              },
+              "queryRef": "FactCalidad.Total Eventos"
+            }
+          ]
+        }
+      }
+    }
+  }
+}
