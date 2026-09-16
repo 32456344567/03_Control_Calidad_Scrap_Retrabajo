@@ -7,21 +7,186 @@
       "displayName": "1. Resumen Ejecutivo COPQ",
       "width": 1280,
       "height": 720,
-      "visualContainers": []
+      "visualContainers": [
+        {
+          "x": 30.0,
+          "y": 20.0,
+          "z": 0.0,
+          "width": 220.0,
+          "height": 110.0,
+          "config": "{\"name\": \"card_copq\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 30, \"y\": 20, \"z\": 0, \"width\": 220, \"height\": 110, \"tabOrder\": 1001}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"FactCalidad.COPQ Total USD\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"f\", \"Entity\": \"FactCalidad\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"f\"}}, \"Property\": \"COPQ Total USD\"}, \"Name\": \"FactCalidad.COPQ Total USD\"}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 280.0,
+          "y": 20.0,
+          "z": 0.0,
+          "width": 220.0,
+          "height": 110.0,
+          "config": "{\"name\": \"card_scrap\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 280, \"y\": 20, \"z\": 0, \"width\": 220, \"height\": 110, \"tabOrder\": 1002}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"FactCalidad.Tasa Scrap %\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"f\", \"Entity\": \"FactCalidad\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"f\"}}, \"Property\": \"Tasa Scrap %\"}, \"Name\": \"FactCalidad.Tasa Scrap %\"}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 530.0,
+          "y": 20.0,
+          "z": 0.0,
+          "width": 220.0,
+          "height": 110.0,
+          "config": "{\"name\": \"card_rework\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 530, \"y\": 20, \"z\": 0, \"width\": 220, \"height\": 110, \"tabOrder\": 1003}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"FactCalidad.Tasa Retrabajo %\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"f\", \"Entity\": \"FactCalidad\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"f\"}}, \"Property\": \"Tasa Retrabajo %\"}, \"Name\": \"FactCalidad.Tasa Retrabajo %\"}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 780.0,
+          "y": 20.0,
+          "z": 0.0,
+          "width": 220.0,
+          "height": 110.0,
+          "config": "{\"name\": \"card_warranty\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 780, \"y\": 20, \"z\": 0, \"width\": 220, \"height\": 110, \"tabOrder\": 1004}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"FactCalidad.Reclamos Garantia 90d\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"f\", \"Entity\": \"FactCalidad\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"f\"}}, \"Property\": \"Reclamos Garantia 90d\"}, \"Name\": \"FactCalidad.Reclamos Garantia 90d\"}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 1030.0,
+          "y": 20.0,
+          "z": 0.0,
+          "width": 220.0,
+          "height": 110.0,
+          "config": "{\"name\": \"card_savings\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 1030, \"y\": 20, \"z\": 0, \"width\": 220, \"height\": 110, \"tabOrder\": 1005}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"FactCalidad.Ahorro Proyectado Anual USD\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"f\", \"Entity\": \"FactCalidad\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"f\"}}, \"Property\": \"Ahorro Proyectado Anual USD\"}, \"Name\": \"FactCalidad.Ahorro Proyectado Anual USD\"}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 30.0,
+          "y": 160.0,
+          "z": 0.0,
+          "width": 600.0,
+          "height": 520.0,
+          "config": "{\"name\": \"bar_cost_outcome\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 30, \"y\": 160, \"z\": 0, \"width\": 600, \"height\": 520, \"tabOrder\": 2001}}], \"singleVisual\": {\"visualType\": \"clusteredColumnChart\", \"projections\": {\"Category\": [{\"queryRef\": \"FactCalidad.desenlace_operativo\", \"active\": true}], \"Y\": [{\"queryRef\": \"FactCalidad.Costo Medio Unidad USD\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"f\", \"Entity\": \"FactCalidad\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"f\"}}, \"Property\": \"desenlace_operativo\"}, \"Name\": \"FactCalidad.desenlace_operativo\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"f\"}}, \"Property\": \"Costo Medio Unidad USD\"}, \"Name\": \"FactCalidad.Costo Medio Unidad USD\"}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 650.0,
+          "y": 160.0,
+          "z": 0.0,
+          "width": 600.0,
+          "height": 520.0,
+          "config": "{\"name\": \"pie_copq_cat\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 650, \"y\": 160, \"z\": 0, \"width\": 600, \"height\": 520, \"tabOrder\": 2002}}], \"singleVisual\": {\"visualType\": \"pieChart\", \"projections\": {\"Category\": [{\"queryRef\": \"FactCalidad.categoria_copq\", \"active\": true}], \"Y\": [{\"queryRef\": \"FactCalidad.Costo Total Eventos USD\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"f\", \"Entity\": \"FactCalidad\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"f\"}}, \"Property\": \"categoria_copq\"}, \"Name\": \"FactCalidad.categoria_copq\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"f\"}}, \"Property\": \"Costo Total Eventos USD\"}, \"Name\": \"FactCalidad.Costo Total Eventos USD\"}]}}}",
+          "filters": "[]"
+        }
+      ]
     },
     {
       "name": "ReportSection_Page2",
       "displayName": "2. Causa Raiz y Desempe\u00f1o",
       "width": 1280,
       "height": 720,
-      "visualContainers": []
+      "visualContainers": [
+        {
+          "x": 30.0,
+          "y": 20.0,
+          "z": 0.0,
+          "width": 280.0,
+          "height": 110.0,
+          "config": "{\"name\": \"p2_card1\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 30, \"y\": 20, \"z\": 0, \"width\": 280, \"height\": 110, \"tabOrder\": 1010}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"FactCalidad.Unidades Scrap\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"f\", \"Entity\": \"FactCalidad\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"f\"}}, \"Property\": \"Unidades Scrap\"}, \"Name\": \"FactCalidad.Unidades Scrap\"}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 340.0,
+          "y": 20.0,
+          "z": 0.0,
+          "width": 280.0,
+          "height": 110.0,
+          "config": "{\"name\": \"p2_card2\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 340, \"y\": 20, \"z\": 0, \"width\": 280, \"height\": 110, \"tabOrder\": 1011}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"FactCalidad.Unidades Retrabajadas\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"f\", \"Entity\": \"FactCalidad\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"f\"}}, \"Property\": \"Unidades Retrabajadas\"}, \"Name\": \"FactCalidad.Unidades Retrabajadas\"}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 650.0,
+          "y": 20.0,
+          "z": 0.0,
+          "width": 280.0,
+          "height": 110.0,
+          "config": "{\"name\": \"p2_card3\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 650, \"y\": 20, \"z\": 0, \"width\": 280, \"height\": 110, \"tabOrder\": 1012}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"FactCalidad.Exito Retrabajo %\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"f\", \"Entity\": \"FactCalidad\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"f\"}}, \"Property\": \"Exito Retrabajo %\"}, \"Name\": \"FactCalidad.Exito Retrabajo %\"}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 960.0,
+          "y": 20.0,
+          "z": 0.0,
+          "width": 280.0,
+          "height": 110.0,
+          "config": "{\"name\": \"p2_card4\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 960, \"y\": 20, \"z\": 0, \"width\": 280, \"height\": 110, \"tabOrder\": 1013}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"FactCalidad.Perdida Retrabajo Fallido USD\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"f\", \"Entity\": \"FactCalidad\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"f\"}}, \"Property\": \"Perdida Retrabajo Fallido USD\"}, \"Name\": \"FactCalidad.Perdida Retrabajo Fallido USD\"}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 30.0,
+          "y": 160.0,
+          "z": 0.0,
+          "width": 600.0,
+          "height": 520.0,
+          "config": "{\"name\": \"bar_defect_type\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 30, \"y\": 160, \"z\": 0, \"width\": 600, \"height\": 520, \"tabOrder\": 2010}}], \"singleVisual\": {\"visualType\": \"clusteredColumnChart\", \"projections\": {\"Category\": [{\"queryRef\": \"FactCalidad.defect_type\", \"active\": true}], \"Y\": [{\"queryRef\": \"FactCalidad.Costo Total Eventos USD\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"f\", \"Entity\": \"FactCalidad\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"f\"}}, \"Property\": \"defect_type\"}, \"Name\": \"FactCalidad.defect_type\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"f\"}}, \"Property\": \"Costo Total Eventos USD\"}, \"Name\": \"FactCalidad.Costo Total Eventos USD\"}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 650.0,
+          "y": 160.0,
+          "z": 0.0,
+          "width": 600.0,
+          "height": 520.0,
+          "config": "{\"name\": \"bar_speed_range\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 650, \"y\": 160, \"z\": 0, \"width\": 600, \"height\": 520, \"tabOrder\": 2011}}], \"singleVisual\": {\"visualType\": \"clusteredColumnChart\", \"projections\": {\"Category\": [{\"queryRef\": \"FactCalidad.rango_velocidad\", \"active\": true}], \"Y\": [{\"queryRef\": \"FactCalidad.Total Eventos\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"f\", \"Entity\": \"FactCalidad\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"f\"}}, \"Property\": \"rango_velocidad\"}, \"Name\": \"FactCalidad.rango_velocidad\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"f\"}}, \"Property\": \"Total Eventos\"}, \"Name\": \"FactCalidad.Total Eventos\"}]}}}",
+          "filters": "[]"
+        }
+      ]
     },
     {
       "name": "ReportSection_Page3",
       "displayName": "3. Eficacia Inspecci\u00f3n y Garant\u00eda",
       "width": 1280,
       "height": 720,
-      "visualContainers": []
+      "visualContainers": [
+        {
+          "x": 30.0,
+          "y": 20.0,
+          "z": 0.0,
+          "width": 380.0,
+          "height": 110.0,
+          "config": "{\"name\": \"p3_card1\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 30, \"y\": 20, \"z\": 0, \"width\": 380, \"height\": 110, \"tabOrder\": 1020}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"FactCalidad.Total Eventos\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"f\", \"Entity\": \"FactCalidad\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"f\"}}, \"Property\": \"Total Eventos\"}, \"Name\": \"FactCalidad.Total Eventos\"}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 450.0,
+          "y": 20.0,
+          "z": 0.0,
+          "width": 380.0,
+          "height": 110.0,
+          "config": "{\"name\": \"p3_card2\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 450, \"y\": 20, \"z\": 0, \"width\": 380, \"height\": 110, \"tabOrder\": 1021}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"FactCalidad.Reclamos Garantia 90d\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"f\", \"Entity\": \"FactCalidad\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"f\"}}, \"Property\": \"Reclamos Garantia 90d\"}, \"Name\": \"FactCalidad.Reclamos Garantia 90d\"}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 870.0,
+          "y": 20.0,
+          "z": 0.0,
+          "width": 380.0,
+          "height": 110.0,
+          "config": "{\"name\": \"p3_card3\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 870, \"y\": 20, \"z\": 0, \"width\": 380, \"height\": 110, \"tabOrder\": 1022}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"FactCalidad.Tasa Escape Garantia %\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"f\", \"Entity\": \"FactCalidad\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"f\"}}, \"Property\": \"Tasa Escape Garantia %\"}, \"Name\": \"FactCalidad.Tasa Escape Garantia %\"}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 30.0,
+          "y": 160.0,
+          "z": 0.0,
+          "width": 600.0,
+          "height": 520.0,
+          "config": "{\"name\": \"bar_inspection\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 30, \"y\": 160, \"z\": 0, \"width\": 600, \"height\": 520, \"tabOrder\": 2020}}], \"singleVisual\": {\"visualType\": \"clusteredColumnChart\", \"projections\": {\"Category\": [{\"queryRef\": \"FactCalidad.inspection_method\", \"active\": true}], \"Y\": [{\"queryRef\": \"FactCalidad.Tasa Escape Garantia %\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"f\", \"Entity\": \"FactCalidad\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"f\"}}, \"Property\": \"inspection_method\"}, \"Name\": \"FactCalidad.inspection_method\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"f\"}}, \"Property\": \"Tasa Escape Garantia %\"}, \"Name\": \"FactCalidad.Tasa Escape Garantia %\"}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 650.0,
+          "y": 160.0,
+          "z": 0.0,
+          "width": 600.0,
+          "height": 520.0,
+          "config": "{\"name\": \"pie_grade\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 650, \"y\": 160, \"z\": 0, \"width\": 600, \"height\": 520, \"tabOrder\": 2021}}], \"singleVisual\": {\"visualType\": \"pieChart\", \"projections\": {\"Category\": [{\"queryRef\": \"FactCalidad.material_grade\", \"active\": true}], \"Y\": [{\"queryRef\": \"FactCalidad.Total Eventos\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"f\", \"Entity\": \"FactCalidad\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"f\"}}, \"Property\": \"material_grade\"}, \"Name\": \"FactCalidad.material_grade\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"f\"}}, \"Property\": \"Total Eventos\"}, \"Name\": \"FactCalidad.Total Eventos\"}]}}}",
+          "filters": "[]"
+        }
+      ]
     }
   ]
 }
