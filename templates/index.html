@@ -58,7 +58,7 @@
             <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
                 <div class="flex items-center space-x-3.5">
                     <div class="w-11 h-11 rounded-xl bg-blue-600/30 border border-blue-400/40 flex items-center justify-center text-blue-300 shadow-inner">
-                        <i class="fa-solid fa-chart-line-up text-xl text-amber-400"></i>
+                        <i class="fa-solid fa-arrow-trend-up text-xl text-amber-400"></i>
                     </div>
                     <div>
                         <div class="flex items-center space-x-2.5">
@@ -328,7 +328,7 @@
                                 </p>
                             </div>
                             <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-rose-100 text-rose-800 border border-rose-200">
-                                +63% en >8 Años
+                                +58% en >8 Años
                             </span>
                         </div>
                         <div id="chart-age" class="mt-1 min-h-[160px]"></div>
@@ -657,8 +657,9 @@
                 plotOptions: { bar: { horizontal: true, distributed: true, borderRadius: 4, barHeight: '55%', dataLabels: { position: 'right' } } },
                 colors: age.colors,
                 dataLabels: { enabled: true, formatter: v => `${v}%`, offsetX: 10, style: { fontSize: '10px', fontWeight: 700 } },
-                xaxis: { max: 25, labels: { formatter: v => `${v}%` } },
-                yaxis: { categories: age.categories, labels: { style: { fontSize: '10px' } } },
+                xaxis: { categories: age.categories, labels: { style: { fontSize: '10px' } } },
+                yaxis: { max: 25 },
+                tooltip: { y: { formatter: v => `${v}%` } },
                 legend: { show: false },
                 grid: { borderColor: '#F1F5F9' }
             };
@@ -679,8 +680,8 @@
                 plotOptions: { bar: { horizontal: true, distributed: true, borderRadius: 6, barHeight: '50%', dataLabels: { position: 'right' } } },
                 colors: insp.colors,
                 dataLabels: { enabled: true, formatter: v => `${v}%`, offsetX: 10, style: { fontSize: '11px', fontWeight: 700 } },
-                xaxis: { max: 2.2, labels: { formatter: v => `${v}%` } },
-                yaxis: { categories: insp.categories, labels: { style: { fontSize: '11px', fontWeight: 600 } } },
+                xaxis: { categories: insp.categories, labels: { style: { fontSize: '11px', fontWeight: 600 } } },
+                yaxis: { max: 2.2 },
                 legend: { show: false },
                 tooltip: { y: { formatter: v => `${v}% de piezas con reclamo` } },
                 grid: { borderColor: '#F1F5F9' }

@@ -33,14 +33,17 @@ def init_database():
 
 init_database()
 
+def _sql_escape(value: str) -> str:
+    return value.replace("'", "''")
+
 def build_where_clause(plant: str = "all", line: str = "all", shift: str = "all") -> str:
     clauses = []
     if plant and plant != "all":
-        clauses.append(f"plant = '{plant}'")
+        clauses.append(f"plant = '{_sql_escape(plant)}'")
     if line and line != "all":
-        clauses.append(f"line = '{line}'")
+        clauses.append(f"line = '{_sql_escape(line)}'")
     if shift and shift != "all":
-        clauses.append(f"shift = '{shift}'")
+        clauses.append(f"shift = '{_sql_escape(shift)}'")
     
     if clauses:
         return "WHERE " + " AND ".join(clauses)

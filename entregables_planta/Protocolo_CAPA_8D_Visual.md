@@ -20,7 +20,7 @@
 * **Where (Dónde):** Líneas de producción con activos mayores a 6 años y turnos operando por encima de la velocidad nominal.
 * **When (Cuándo):** Histórico de 10,000 eventos de producción evaluados en turnos diurno y rotativo.
 * **Who (Quién):** Inspectores de calidad aplicando inspección manual no estandarizada frente a sistemas automáticos.
-* **Why (Por qué importa):** Pérdida de $4,863.79 USD en la muestra ($48k+ anualizados) y riesgo de 125 reclamos de clientes en garantía a 90 días.
+* **Why (Por qué importa):** Pérdida de $4,878.44 USD en la muestra ($48k+ anualizados) y riesgo de 125 reclamos de clientes en garantía a 90 días.
 * **How (Cómo se manifiesta):** Piezas con Severidad 3 sometidas a retrabajo sin viabilidad técnica.
 * **How much (Cuánto cuesta):** $25.47 USD de sobrecosto por cada pieza retrabajada innecesariamente + 78 horas de línea perdidas.
 

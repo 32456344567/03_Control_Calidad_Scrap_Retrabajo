@@ -8,7 +8,7 @@
 ## ⏱️ 1. Tu Historia en 30 Segundos (Elevator Pitch)
 > *"En planta, el dilema diario del inspector es: **¿reproceso la pieza defectuosa o la mando directo a la chatarra (scrap)?**  
 > Muchas veces 'repararla' parece económico, pero si el defecto es severo, más del 50% de las piezas igual fracasan, terminando en la chatarra con un costo acumulado de **$126.78 USD** frente a los **$101.31 USD** del descarte inmediato.  
-> Con 10,000 eventos reales de producción apliqué la metodología **Six Sigma DMAIC**: diseñé un **Cuadro de Mando en Power BI** para monitoreo de Costo de No Calidad (COPQ), un **Reporte A3 de Causa Raíz** y una **One-Point Lesson (OPL) visual** pegada en cada máquina. Erradicamos 191 piezas en zona de doble pérdida, liberamos 78 horas productivas de cuadrilla y proyectamos un ahorro de más de **$48,000 USD al año a Capex Cero**."*
+> Con 10,000 eventos reales de producción apliqué la metodología **Six Sigma DMAIC**: diseñé un **Cuadro de Mando en Power BI** para monitoreo de Costo de No Calidad (COPQ), un **Reporte A3 de Causa Raíz** y una **One-Point Lesson (OPL) visual** pegada en cada máquina. Erradicamos 191 piezas en zona de doble pérdida, liberamos 78 horas productivas de cuadrilla y proyectamos un ahorro de más de **$48,700 USD al año a Capex Cero**."*
 
 ---
 
@@ -21,10 +21,10 @@
 * **Acción (Action):**  
   *"Desarrollé el proyecto en 3 niveles de gestión industrial:  
   1. **Nivel Gerencial (Power BI):** Diseñé el modelo de datos y KPIs para monitorear el COPQ en tiempo real por planta, línea y turno, evaluando la fuga a clientes.  
-  2. **Nivel Ingeniería (Reporte A3 Lean):** Con estadística inferencial identifiqué las 3 causas raíz: velocidad forzada (>139 u/h disparaba +49% defectos), máquinas de más de 8 años (+63% fallas) e inspección manual con 70% más de escape a garantía que los sensores automáticos.  
+  2. **Nivel Ingeniería (Reporte A3 Lean):** Con estadística inferencial identifiqué las 3 causas raíz: velocidad forzada (>139 u/h disparaba +49% defectos), máquinas de más de 8 años (+58% fallas) e inspección manual con 70% más de escape a garantía que los sensores automáticos.  
   3. **Nivel Piso (One-Point Lesson):** Diseñé una ayuda visual plastificada de 1 sola página para la estación de control, clasificando los defectos en 3 severidades con destino físico inmediato (Gaveta Verde para reproceso leve, Gaveta Amarilla para retención y Gaveta Roja para scrap directo e irreversible)."*
 * **Resultado (Result):**  
-  *"Erradicamos al 100% las piezas en scrap de doble costo, generamos un ahorro auditado de $4,864 USD en la muestra ($48,648 USD anualizados a Capex Cero), devolvimos 78 horas productivas a la línea y redujimos el riesgo de reclamos de clientes por debajo del 1.00%."*
+  *"Erradicamos al 100% las piezas en scrap de doble costo, generamos un ahorro auditado de $4,878.44 USD en la muestra ($48,784 USD anualizados a Capex Cero), devolvimos 78 horas productivas a la línea y redujimos el riesgo de reclamos de clientes por debajo del 1.00%."*
 
 ---
 
@@ -33,7 +33,7 @@
    Es el costo de retrabajar una pieza que igual termina en chatarra frente al descarte directo. Cada vez que la OPL frena un retrabajo inviable, la planta ahorra **+$25.47 USD netos por unidad**.
 2. **51.7% de fracaso en Severidad 3:**  
    Los defectos graves (grietas pasantes o deformaciones críticas) tienen una tasa de fracaso superior al 50% y un 31.5% de scrap directo. Retrabajar defectos severos es tirar dinero bueno sobre dinero malo.
-3. **+$48,648 USD/año y +78.0 Horas Recuperadas:**  
+3. **+$48,784 USD/año y +78.0 Horas Recuperadas:**  
    El beneficio operativo y financiero tangible obtenido sin comprar maquinaria nueva (Capex Cero).
 
 ---
@@ -44,9 +44,9 @@
 * **Respuesta del Candidato:**  
   *"En manufactura no podemos gestionar por optimismo sino por estadística y valor monetario esperado. En Severidad 3 comprobamos que el 51.7% de las piezas no pasan la prueba final y el 31.5% terminan en scrap. Eso significa que la empresa paga el costo del material, más 24 minutos de sueldo del operario, más energía eléctrica, solo para terminar botándola a la chatarra. Cuando la probabilidad de éxito es menor al 50%, el valor esperado del retrabajo es destructivo para el negocio. La verdadera excelencia de calidad consiste en saber cuándo cortar la pérdida a tiempo."*
 
-### Pregunta 2: "¿Cómo calculaste el ahorro de $48,000 USD al año?"
+### Pregunta 2: "¿Cómo calculaste el ahorro de $48,700 USD al año?"
 * **Respuesta del Candidato:**  
-  *"En la muestra de 10,000 eventos registramos exactamente 191 piezas que sufrieron retrabajo fallido. La diferencia de costo entre el retrabajo fallido ($126.78 USD) y el scrap directo ($101.31 USD) es de $25.47 USD por unidad. Multiplicado por las 191 piezas da un ahorro directo de $4,863.79 USD en la muestra. En una operación típica de 100,000 eventos anuales (2 líneas en 3 turnos), la proyección directa a volumen anualizado supera los $48,600 USD netos en costo de no calidad evitado."*
+  *"En la muestra de 10,000 eventos registramos exactamente 191 piezas que sufrieron retrabajo fallido. La diferencia de costo entre el retrabajo fallido ($126.78 USD) y el scrap directo ($101.31 USD) es de $25.47 USD por unidad. Multiplicado por las 191 piezas da un ahorro directo de $4,878.44 USD en la muestra. En una operación típica de 100,000 eventos anuales (2 líneas en 3 turnos), la proyección directa a volumen anualizado supera los $48,784 USD netos en costo de no calidad evitado."*
 
 ### Pregunta 3: "¿Cómo aseguraste que los supervisores e inspectores cumplan el estándar en piso?"
 * **Respuesta del Candidato:**  
@@ -64,7 +64,7 @@
 * **Respuesta del Candidato:**  
   *"Aislé 3 factores determinantes en el análisis estadístico:  
   1. **Velocidad de proceso:** Cuando los turnos forzaban la línea a más de 139 u/h para recuperar tiempo de paradas previas, la tasa de defectos subía de 12.9% a 19.2% (+49%).  
-  2. **Antigüedad de máquina:** Activos con más de 8 años duplicaban la tasa de defectos frente a máquinas nuevas (+63%) por holguras mecánicas y desgaste de guías.  
+  2. **Antigüedad de máquina:** Activos con más de 8 años presentaban una tasa de defectos 63% mayor que las máquinas nuevas por holguras mecánicas y desgaste de guías.  
   3. **Materia prima:** El insumo Grado C generaba un 40% más de defectos que el Grado A.  
   La contramedida CAPA incluyó enclavar en el PLC una velocidad máxima de 125 u/h en máquinas de más de 6 años."*
 

@@ -267,9 +267,9 @@ cells.append(nbf.v4.new_markdown_cell('''---
 * En la muestra histórica de 10,000 eventos, existieron **191 piezas retrabajadas que terminaron en Scrap**.
 * Costo real incurrido en esas 191 piezas: **$126.78 USD** c/u.
 * Costo de haberlas enviado a Scrap directo: **$101.31 USD** c/u.
-* **Ahorro Neto Directo:** $4,863.79 USD en la muestra ($25.47 USD/pieza).
+* **Ahorro Neto Directo:** $4,878.44 USD en la muestra ($25.47 USD/pieza).
 * **Capacidad de Planta Liberada:** ~78 horas hombre de técnicos y operadores devueltas a producción útil.
-* **Proyección Anualizada:** En una fábrica con 100,000 eventos/año, el ahorro neto supera los **$48,000 USD/año** a Capex Cero.
+* **Proyección Anualizada:** En una fábrica con 100,000 eventos/año, el ahorro neto supera los **$48,700 USD/año** a Capex Cero.
 '''))
 
 cells.append(nbf.v4.new_code_cell('''ahorro_por_scrap_evitado = (126.78 - 101.31) * 191

@@ -19,15 +19,15 @@
 │   $101.31 USD de Scrap directo (+$25.47 USD / pieza).   ├─────────────────────────────────────────────────────────┤
 │ • 78 horas de operario desperdiciadas en reprocesos.    │ 6. CONFIRMACIÓN DE EFECTOS (RESULTADOS AUDITADOS)       │
 │ • Escape a garantía en inspección manual: 1.61%.        │ • Piezas Scrap de Doble Costo: De 191 a 0 uds (-100%).  │
-├─────────────────────────────────────────────────────────┤ • Ahorro Directo (Muestra): +$4,863.79 USD netos.       │
-│ 3. OBJETIVOS Y METAS (TARGET STATE)                     │ • Ahorro Proyectado Fábrica: +$48,648 USD / año.        │
+├─────────────────────────────────────────────────────────┤ • Ahorro Directo (Muestra): +$4,878.44 USD netos.       │
+│ 3. OBJETIVOS Y METAS (TARGET STATE)                     │ • Ahorro Proyectado Fábrica: +$48,784 USD / año.        │
 │ • Erradicar al 100% el scrap post-retrabajo.            │ • Horas Productivas Devueltas: +78.0 h a línea útil.    │
 │ • Generar ahorro recurrente a Capex Cero (>$45k/año).   │ • Escape a Garantía: Reducido a < 1.00% con visión.     │
 │ • Blindar la entrega reduciendo reclamos a < 1.00%.     ├─────────────────────────────────────────────────────────┤
 ├─────────────────────────────────────────────────────────┤ 7. ESTANDARIZACIÓN Y SEGUIMIENTO (STANDARDIZATION)     │
 │ 4. ANÁLISIS CAUSA RAÍZ (ROOT CAUSE ANALYSIS)            │ • Procedimiento POE-CAL-04 actualizado y firmado.       │
 │ • Ishikawa 4M: Velocidad forzada (>139 u/h) causa +49%  │ • Auditoría mensual de COPQ en reunión de operaciones.  │
-│   defectos; máquinas >8 años duplican fallas (+63%).    │ • Tablero Power BI desplegado para monitoreo gerencial. │
+│   defectos; máquinas >8 años elevan fallas 63%.         │ • Tablero Power BI desplegado para monitoreo gerencial. │
 │ • 5 Porqués: La falta de un límite de severidad en piso │ • Capacitación One-Point Lesson a todos los turnos.     │
 │   incentivaba el retrabajo a ciegas.                    │                                                         │
 └─────────────────────────────────────────────────────────┴─────────────────────────────────────────────────────────┘
@@ -61,7 +61,7 @@ Esta práctica generaba un **desperdicio silencioso y masivo de recursos**: oper
 
 ## 3. Objetivos Cuantificables del Proyecto (Metas SMART)
 1. **Reducción de Pérdidas por Doble Costo:** Disminuir de 191 a 0 las piezas con Severidad 3 sometidas a retrabajo fallido en los próximos 30 días.
-2. **Impacto Financiero:** Generar un ahorro recurrente de **+$48,648 USD/año** para la planta a Capex Cero.
+2. **Impacto Financiero:** Generar un ahorro recurrente de **+$48,784 USD/año** para la planta a Capex Cero.
 3. **Productividad de Línea:** Recuperar **78 horas hombre de operarios** al mes para tareas productivas en lugar de reprocesos estériles.
 4. **Calidad de Cliente:** Reducir la tasa de fuga de defectos a reclamo en garantía del **1.61% al < 1.00%**.
 
@@ -119,7 +119,7 @@ Esta práctica generaba un **desperdicio silencioso y masivo de recursos**: oper
   │ Horas Perdidas: 78.0 h        │       │ Horas Devueltas: +78.0 h      │
   │ Fuga Garantía: 1.61% (Manual) │       │ Fuga Garantía: < 1.00%        │
   └───────────────────────────────┘       └───────────────────────────────┘
-                     AHORRO NETO: +$48,648 USD / AÑO (Capex Cero)
+                     AHORRO NETO: +$48,784 USD / AÑO (Capex Cero)
 ```
 
 ---

@@ -37,8 +37,8 @@
 | Indicador Clave de Desempeño | Antes (Línea Base) | Después (Con Semáforo) | Impacto para el Negocio |
 |---|:---:|:---:|:---:|
 | **Scrap de Doble Costo (Post-retrabajo)** | 191 unidades ($126.78 USD c/u) | **0 unidades** | **Eliminación total de la peor pérdida de planta** |
-| **Ahorro Directo Inmediato (10k eventos)** | Baseline de pérdidas | **+$4,863.79 USD netos** | Ahorro a Capex Cero ($25.47 USD por pieza filtrada) |
-| **Ahorro Proyectado Fábrica (100k eventos/año)** | — | **+$48,638 USD / año** | Impacto directo en el EBITDA operativo |
+| **Ahorro Directo Inmediato (10k eventos)** | Baseline de pérdidas | **+$4,878.44 USD netos** | Ahorro a Capex Cero ($25.47 USD por pieza filtrada) |
+| **Ahorro Proyectado Fábrica (100k eventos/año)** | — | **+$48,784 USD / año** | Impacto directo en el EBITDA operativo |
 | **Capacidad y Horas Hombre Recuperadas** | 78 h desperdiciadas | **+78 h operativas devueltas** | Mayor productividad y descongestión de líneas |
 | **Fugas a Reclamos de Garantía (90 días)** | 1.61% en inspección manual | **< 1.00% con visión/sensores** | **-38% en riesgo de penalización y reclamos de cliente** |
 

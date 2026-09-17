@@ -18,7 +18,7 @@ Este proyecto analiza **10,000 eventos reales de manufactura** para erradicar el
 ## 📊 Las 3 Cifras Clave del Proyecto
 1. **$126.78 USD vs. $101.31 USD:**  
    Sobrecosto evitado por cada pieza severa que no se somete a reproceso inviable (**+$25.47 USD de ahorro neto por unidad**).
-2. **+$4,878.44 USD en la muestra / +$48,648 USD al año:**  
+2. **+$4,878.44 USD en la muestra / +$48,784 USD al año:**  
    Ahorro financiero directo proyectado para una operación de 100,000 eventos anuales a Capex Cero.
 3. **+78.0 Horas Hombre Devueltas:**  
    Capacidad de operarios y técnicos recuperada para producción útil al eliminar 191 retrabajos fallidos.
@@ -30,7 +30,7 @@ Este proyecto analiza **10,000 eventos reales de manufactura** para erradicar el
 El proyecto incluye un **tablero gerencial interactivo de alta fidelidad** desarrollado con **FastAPI + DuckDB In-Memory + Tailwind CSS + ApexCharts**, estructurado en 3 vistas ejecutivas idénticas a los estándares corporativos de planta:
 
 1. **Página 1: Resumen Ejecutivo COPQ:**
-   * 5 Tarjetas KPI principales: COPQ Total ($115.9K), Tasa de Scrap (2.48%), Tasa de Retrabajo (24.34%), Reclamos en Garantía (125) y Ahorro Anual Proyectado (+$48.6K).
+   * 5 Tarjetas KPI principales: COPQ Total ($115.9K), Tasa de Scrap (2.48%), Tasa de Retrabajo (24.34%), Reclamos en Garantía (125) y Ahorro Anual Proyectado (+$48.8K).
    * Gráfico de columnas del costo medio por desenlace operativo (resaltando el costo crítico de $126.78 USD en rojo).
    * Gráfico de dona con la distribución de pérdidas COPQ (Falla Interna Retrabajo 71.8%, Falla Interna Scrap 23.8%, Falla Externa 4.4%).
 2. **Página 2: Causa Raíz & Desempeño Operativo:**

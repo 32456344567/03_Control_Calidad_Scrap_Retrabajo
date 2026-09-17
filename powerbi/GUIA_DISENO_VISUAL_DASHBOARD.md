@@ -26,7 +26,7 @@
 * **Objetivo:** Vista para el Director de Planta y Gerencia de Operaciones.
 * **Composición:**
   * **Header Superior:** Banner azul marino `#1B365D` con título formal y segmentadores de *Planta*, *Línea* y *Turno*.
-  * **Fila Superior (5 Tarjetas KPI):** `COPQ Total ($48.6K)`, `Tasa Scrap % (2.5%)`, `Tasa Retrabajo % (24.3%)`, `Reclamos Garantía 90d (125)`, `Ahorro Anual Proyectado (+$48,648 USD)`.
+  * **Fila Superior (5 Tarjetas KPI):** `COPQ Total ($48.8K)`, `Tasa Scrap % (2.5%)`, `Tasa Retrabajo % (24.3%)`, `Reclamos Garantía 90d (125)`, `Ahorro Anual Proyectado (+$48,784 USD)`.
   * **Visual Inferior Izquierdo:** Gráfico de columnas de *Costo Medio por Desenlace Operativo*, destacando en rojo el salto de costo a **$126.78 USD** en retrabajo fallido.
   * **Visual Inferior Derecho:** Gráfico de anillo (*Donut Chart*) con el desglose del COPQ entre *Falla Interna Scrap*, *Falla Interna Retrabajo* y *Falla Externa Garantía*.
 

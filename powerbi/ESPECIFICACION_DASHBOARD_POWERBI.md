@@ -187,7 +187,7 @@ DIVIDE([Reclamos Garantia 90d], [Total Eventos], 0)
   2. `Tasa Scrap %` (Meta: < 2.0% | Semaforización: Verde <2%, Rojo ≥2%).
   3. `Tasa Retrabajo %` (Línea base: 24.3%).
   4. `Reclamos de Garantía` (Total: 125 eventos | Tasa: 1.25%).
-  5. `Ahorro Proyectado Anual USD` (+$48,648 USD a Capex Cero).
+  5. `Ahorro Proyectado Anual USD` (+$48,784 USD a Capex Cero).
 * **Visual 1 (Donut Chart):** Composición del COPQ (Falla Interna Scrap vs Falla Interna Retrabajo vs Falla Externa Garantía).
 * **Visual 2 (Gráfico de Columnas Agrupadas):** Costo Medio Unitario según Desenlace Operativo:
   * Aprobado Directo: $23.54 USD.
