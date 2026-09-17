@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -282,20 +282,20 @@
                         <div class="flex items-start justify-between">
                             <div>
                                 <h3 class="text-sm font-bold text-navy-900 uppercase tracking-wide">
-                                    Diagrama de Pareto 80/20 de Defectos
+                                    Distribución de Defectos & Curva Acumulada
                                 </h3>
                                 <p class="text-xs text-slate-500 mt-0.5">
-                                    Priorización de costos por tipología de defecto y porcentaje acumulado
+                                    Evaluación de concentración de costos por defecto (Evaluación Regla 80/20)
                                 </p>
                             </div>
-                            <span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-semibold bg-blue-100 text-blue-800 border border-blue-200">
-                                Regla 80/20
+                            <span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-semibold bg-amber-100 text-amber-800 border border-amber-200 whitespace-nowrap flex-shrink-0 ml-2" title="Distribución uniforme: Cada tipología aporta ~20% del costo">
+                                Distribución Plana (~20% c/u)
                             </span>
                         </div>
                         <div id="chart-pareto" class="mt-2 min-h-[350px]"></div>
                     </div>
-                    <p class="text-[11px] text-slate-500 mt-2 bg-slate-50 p-2.5 rounded-lg border border-slate-200">
-                        <i class="fa-solid fa-lightbulb text-amber-500 mr-1"></i> <span class="font-semibold">Hallazgo:</span> Rayaduras, grietas y acabados representan más del 60% de los costos totales de no conformidad.
+                    <p class="text-[11px] text-slate-600 mt-2 bg-amber-50/80 p-2.5 rounded-lg border border-amber-200">
+                        <i class="fa-solid fa-triangle-exclamation text-amber-600 mr-1"></i> <span class="font-semibold text-amber-900">Diagnóstico de Calidad:</span> Al aportar cada defecto ~20% del costo, <strong>no existe un "Poco Vital" aislado</strong> (requiere 4 de 5 defectos para llegar al 80%). El problema es de <strong>causas comunes / variabilidad sistémica</strong>; la verdadera priorización se halla estratificando por velocidad y desgaste de máquina.
                     </p>
                 </div>
 
@@ -604,7 +604,14 @@
                     { name: '% Acumulado', type: 'line', data: pareto.cumulative_pct }
                 ],
                 chart: { height: 330, type: 'line', fontFamily: 'Inter, sans-serif', toolbar: { show: false } },
-                stroke: { width: [0, 3], curve: 'smooth' },
+                stroke: { width: [0, 3], curve: 'straight' },
+                markers: {
+                    size: [0, 6],
+                    strokeColors: '#ffffff',
+                    strokeWidth: 2,
+                    fillColors: ['#EF4444'],
+                    hover: { size: 8 }
+                },
                 colors: ['#3B82F6', '#EF4444'],
                 plotOptions: { bar: { borderRadius: 5, columnWidth: '50%' } },
                 labels: pareto.labels,
@@ -638,7 +645,7 @@
                 colors: speed.colors,
                 dataLabels: { enabled: true, formatter: v => `${v}%`, offsetY: -18, style: { fontSize: '10px', fontWeight: 700 } },
                 xaxis: { categories: speed.categories, labels: { style: { fontSize: '10px' } } },
-                yaxis: { max: 25, labels: { formatter: v => `${v}%` } },
+                yaxis: { min: 0, max: 25, labels: { formatter: v => `${v}%` } },
                 legend: { show: false },
                 grid: { borderColor: '#F1F5F9' }
             };
@@ -657,8 +664,8 @@
                 plotOptions: { bar: { horizontal: true, distributed: true, borderRadius: 4, barHeight: '55%', dataLabels: { position: 'right' } } },
                 colors: age.colors,
                 dataLabels: { enabled: true, formatter: v => `${v}%`, offsetX: 10, style: { fontSize: '10px', fontWeight: 700 } },
-                xaxis: { categories: age.categories, labels: { style: { fontSize: '10px' } } },
-                yaxis: { max: 25 },
+                xaxis: { categories: age.categories, max: 25, labels: { style: { fontSize: '10px' } } },
+                yaxis: { labels: { minWidth: 130, maxWidth: 160, style: { fontSize: '10px' } } },
                 tooltip: { y: { formatter: v => `${v}%` } },
                 legend: { show: false },
                 grid: { borderColor: '#F1F5F9' }

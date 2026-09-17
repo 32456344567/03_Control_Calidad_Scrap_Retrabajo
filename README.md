@@ -34,7 +34,7 @@ El proyecto incluye un **tablero gerencial interactivo de alta fidelidad** desar
    * Gráfico de columnas del costo medio por desenlace operativo (resaltando el costo crítico de $126.78 USD en rojo).
    * Gráfico de dona con la distribución de pérdidas COPQ (Falla Interna Retrabajo 71.8%, Falla Interna Scrap 23.8%, Falla Externa 4.4%).
 2. **Página 2: Causa Raíz & Desempeño Operativo:**
-   * Diagrama de Pareto 80/20 de defectos ordenado por costo y porcentaje acumulado.
+   * Diagrama de Pareto y Distribución de defectos ordenado por costo y porcentaje acumulado.
    * Gráfico de barras de sobretasa de defectos por velocidad forzada (>139 u/h a 19.3%).
    * Gráfico de barras horizontales de degradación de calidad por antigüedad del activo (>8 años a 19.7%).
 3. **Página 3: Eficacia de Inspección & Blindaje ante Cliente:**

@@ -3,9 +3,8 @@ import sys
 import threading
 import duckdb
 import pandas as pd
-import numpy as np
 from fastapi import FastAPI, Query
-from fastapi.responses import HTMLResponse, JSONResponse
+from fastapi.responses import HTMLResponse
 
 app = FastAPI(
     title="Executive Quality Control & COPQ Analytics Platform",
